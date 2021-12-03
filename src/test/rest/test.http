@@ -1,0 +1,6 @@
+POST {{domain}}/{{server_name}}/test
+Content-Type: application/json
+
+{
+  "id": 1
+}

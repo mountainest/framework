@@ -1,0 +1,8 @@
+server:
+  servlet:
+    context-path: /framework
+  port: 6666
+
+spring:
+  profiles:
+    active: local

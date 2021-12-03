@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status针对log4j2本身的日志级别调整 -->
+<Configuration status="WARN">
+  <Properties>
+    <Property name="log.level">info</Property>
+    <Property name="log.path">logs</Property>
+    <Property name="filename">notification-service</Property>
+    <!-- 指定零时区，去除彩色 -->
+    <Property name="pattern">
+      %d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+0} [%-5level] [%t: %class{1.}] %method:%L - %msg%n
+    </Property>
+    <!-- 彩色输出 -->
+    <Property name="color.pattern">
+      %d{yyyy-MM-dd HH:mm:ss.SSS} [%highlight{%-5level}] [%t: %class{1.}] %method:%L - %msg%n
+    </Property>
+
+    <Property name="error.filename">${filename}-error</Property>
+    <Property name="warn.filename">${filename}-warn</Property>
+    <Property name="info.filename">${filename}-info</Property>
+    <Property name="debug.filename">${filename}-debug</Property>
+    <Property name="trace.filename">${filename}-trace</Property>
+
+    <Property name="rolling.filename.suffix">%d{yyyy-MM-dd}-%i.log</Property>
+    <Property name="error.filePattern">${log.path}/%d{yyyy-MM}/${error.filename}-${rolling.filename.suffix}</Property>
+    <Property name="warn.filePattern">${log.path}/%d{yyyy-MM}/${warn.filename}-${rolling.filename.suffix}</Property>
+    <Property name="info.filePattern">${log.path}/%d{yyyy-MM}/${info.filename}-${rolling.filename.suffix}</Property>
+    <Property name="debug.filePattern">${log.path}/%d{yyyy-MM}/${debug.filename}-${rolling.filename.suffix}</Property>
+    <Property name="trace.filePattern">${log.path}/%d{yyyy-MM}/${trace.filename}-${rolling.filename.suffix}</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${pattern}"/>
+    </Console>
+    <Console name="color.Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${color.pattern}" disableAnsi="false"/>
+    </Console>
+
+<!--    <File name="File" fileName="${log.path}/${filename}.log">-->
+<!--      <PatternLayout pattern="${pattern}"/>-->
+<!--    </File>-->
+
+    <!-- createOnDemand有日志时，才会创建filename文件。 -->
+    <RollingFile name="trace.rolling.file"
+      createOnDemand="true" fileName="${log.path}/${trace.filename}.log"
+      filePattern="${trace.filePattern}">
+      <Filters>
+        <ThresholdFilter level="debug" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${log.path}" maxDepth="2">
+          <IfLastModified age="2d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="20 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+      <PatternLayout>
+        <pattern>${pattern}</pattern>
+      </PatternLayout>
+    </RollingFile>
+
+    <RollingFile name="debug.rolling.file"
+      createOnDemand="true" fileName="${log.path}/${debug.filename}.log"
+      filePattern="${debug.filePattern}">
+      <Filters>
+        <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${log.path}" maxDepth="2">
+          <IfLastModified age="7d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="20 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+      <PatternLayout>
+        <pattern>${pattern}</pattern>
+      </PatternLayout>
+    </RollingFile>
+
+    <RollingFile name="info.rolling.file"
+      createOnDemand="true" fileName="${log.path}/${info.filename}.log"
+      filePattern="${info.filePattern}">
+      <Filters>
+        <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${log.path}" maxDepth="2">
+          <IfLastModified age="15d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+      <Policies>
+        <OnStartupTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="20 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+      <PatternLayout>
+        <pattern>${pattern}</pattern>
+      </PatternLayout>
+    </RollingFile>
+
+    <RollingFile name="warn.rolling.file"
+      createOnDemand="true" fileName="${log.path}/${warn.filename}.log"
+      filePattern="${warn.filePattern}">
+      <Filters>
+        <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${log.path}" maxDepth="2">
+          <IfLastModified age="30d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="20 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+      <PatternLayout>
+        <pattern>${pattern}</pattern>
+      </PatternLayout>
+    </RollingFile>
+
+    <RollingFile name="error.rolling.file"
+      createOnDemand="true" fileName="${log.path}/${error.filename}.log"
+      filePattern="${error.filePattern}">
+      <Filters>
+        <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${log.path}" maxDepth="2">
+          <IfLastModified age="90d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="20 MB" />
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+      <PatternLayout>
+        <pattern>${pattern}</pattern>
+      </PatternLayout>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Root level="${log.level}">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="trace.rolling.file"/>
+      <AppenderRef ref="debug.rolling.file"/>
+      <AppenderRef ref="info.rolling.file"/>
+      <AppenderRef ref="warn.rolling.file"/>
+      <AppenderRef ref="error.rolling.file"/>
+    </Root>
+    <!-- additivity是否进行日志叠加，会重复记录 -->
+<!--    <Logger name="io.ambergroup.workflow" level="warn" additivity="false"/>-->
+  </Loggers>
+</Configuration>

@@ -1,5 +1,9 @@
 package com.mountain.framework.utils;
 
+import lombok.Getter;
+
+// get方法用于序列化，否则会报406客户端错误。
+@Getter
 public class Response<T> {
     private int code;
     private String msg;

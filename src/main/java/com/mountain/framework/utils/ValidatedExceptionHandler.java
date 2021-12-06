@@ -18,7 +18,7 @@ public class ValidatedExceptionHandler {
         List<FieldError> list = e.getBindingResult().getFieldErrors();
         for (FieldError error: list) {
             String code = error.getCode();
-            String msg = error.getField() + error.getDefaultMessage();
+            String msg = error.getField() + " " + error.getDefaultMessage();
             log.debug("参数校验失败。{}： {}, 异常码：{}, 输入值：{}",
                 error.getObjectName(), msg, code, error.getRejectedValue());
             return Response.fail(code.hashCode(), msg);

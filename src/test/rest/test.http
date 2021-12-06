@@ -3,6 +3,7 @@ GET {{domain}}/{{server_name}}/test
 ###
 POST {{domain}}/{{server_name}}/test
 Content-Type: application/json
+Accept-Language: en-US
 
 {
   "id": 1,

@@ -1,5 +1,6 @@
 package com.mountain.framework.controller.valid;
 
+import com.mountain.framework.utils.IpAddress;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -23,5 +24,8 @@ public class ReqDto {
         private String province;
         @NotBlank
         private String city;
+        @NotBlank
+        @IpAddress
+        private String ip;
     }
 }

@@ -8,7 +8,8 @@ import lombok.Data;
 
 @Data
 public class ReqDto {
-    @NotNull
+    public interface Update {}
+    @NotNull(groups = Update.class)
     private Integer id;
     @NotBlank
     @Email

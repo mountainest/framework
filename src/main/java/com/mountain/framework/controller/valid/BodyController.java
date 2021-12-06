@@ -1,6 +1,7 @@
 package com.mountain.framework.controller.valid;
 
 import com.mountain.framework.utils.Response;
+import javax.validation.groups.Default;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +16,7 @@ public class BodyController {
     }
 
     @PutMapping("/test")
-    public Response testPut(@Validated(ReqDto.Update.class) @RequestBody ReqDto req) {
+    public Response testPut(@Validated({Default.class, ReqDto.Update.class}) @RequestBody ReqDto req) {
         return Response.success();
     }
 }

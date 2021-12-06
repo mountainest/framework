@@ -21,6 +21,15 @@ public class Response<T> {
         return new Response(errCode, null);
     }
 
+    public static Response fail(int code, String msg) {
+        return new Response(code, msg);
+    }
+
+    private Response(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
     private Response(ErrCode errCode, T data) {
         this.code = errCode.getCode();
         this.msg = errCode.getMsg();

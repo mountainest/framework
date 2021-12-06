@@ -1,9 +1,29 @@
 GET {{domain}}/{{server_name}}/test
+Accept-Language: zh-CN
 
 ###
 POST {{domain}}/{{server_name}}/test
 Content-Type: application/json
+Accept-Language: en-US
 
 {
-  "id": 1
+  "email": "test@qq",
+  "address": {
+    "province": "guangdong",
+    "city": "shenzhen"
+  }
+}
+
+###
+PUT {{domain}}/{{server_name}}/test
+Content-Type: application/json
+Accept-Language: en-US
+
+{
+  "id": 1,
+  "email": "test@qq",
+  "address": {
+    "province": "guangdong",
+    "city": "shenzhen"
+  }
 }

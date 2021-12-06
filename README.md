@@ -7,3 +7,4 @@ RestController
 
 feign用法、重试，动态url等。
 操作日志。
+maven打包

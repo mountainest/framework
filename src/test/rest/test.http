@@ -1,4 +1,5 @@
 GET {{domain}}/{{server_name}}/test
+Accept-Language: zh-CN
 
 ###
 POST {{domain}}/{{server_name}}/test

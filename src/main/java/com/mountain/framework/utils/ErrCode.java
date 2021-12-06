@@ -5,6 +5,9 @@ public enum ErrCode {
     OK(200, "OK"),
 
     // 客户端参数错误
+    UNKNOWN_REQUEST_ERROR(40000, "请求错误。"),
+    CLIENT_PARAM_ERROR(40001, "参数校验错误。"),
+
     // 内部服务器错误
     ;
 

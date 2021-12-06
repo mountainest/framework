@@ -1,4 +1,4 @@
-package com.mountain.framework.dto;
+package com.mountain.framework.controller.valid;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class ReqDto {
+    // Update仅仅是一个标识，甚至可以不定义使用PutMapping代替。
     public interface Update {}
     @NotNull(groups = Update.class)
     private Integer id;

@@ -1,6 +1,5 @@
 package com.mountain.framework.controller.valid;
 
-import com.mountain.framework.dto.ReqDto;
 import com.mountain.framework.utils.Response;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;

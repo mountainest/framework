@@ -9,6 +9,7 @@ import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -54,5 +55,15 @@ public class ValidatedExceptionHandler {
 
         log.error("未知的校验错误。", e);
         return Response.fail(ErrCode.UNKNOWN_REQUEST_ERROR);
+    }
+
+    /**
+     * 处理简单参数校验错误，加上@RequestParam时，抛出该异常。
+     * @param e
+     * @return
+     */
+    @ExceptionHandler({MissingServletRequestParameterException.class})
+    public Response handleException(MissingServletRequestParameterException e) {
+        return Response.fail(e.hashCode(), e.getLocalizedMessage());
     }
 }

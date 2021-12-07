@@ -9,6 +9,7 @@ public enum ErrCode {
     CLIENT_PARAM_ERROR(40001, "参数校验错误。"),
 
     // 内部服务器错误
+    REQUEST_URL_ERR(50000, "请求的URL异常。"),
     ;
 
     ErrCode(int code, String msg) {

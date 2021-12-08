@@ -2,6 +2,7 @@ package com.mountain.framework.config;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Locale;
 import javax.servlet.FilterChain;
 import javax.servlet.GenericFilter;
 import javax.servlet.ServletContext;
@@ -24,6 +25,8 @@ public class AccessFilter extends GenericFilter {
         Enumeration<String> attributes = context.getAttributeNames();
         log.debug("{}, {}, {}", name, context.getServerInfo(), attributes);
         HttpServletRequest request = (HttpServletRequest)servletRequest;
+        Locale locale = request.getLocale();
+        log.debug("语言：{}, {}", locale.toLanguageTag(), locale.toString());
 
         // 使用Accept-Language仅仅为了示例，实际上，应该用认证token信息
         String token = request.getHeader("Accept-Language");

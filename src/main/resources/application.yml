@@ -6,3 +6,20 @@ server:
 spring:
   profiles:
     active: local
+
+management:
+  server:
+    port: 8000
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${server.servlet.context-path}

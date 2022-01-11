@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ApplicationFilterChain {
++ void doFilter(ServletRequest request, ServletResponse response) throws IOException, ServletException
+- void internalDoFilter(ServletRequest request, ServletResponse response) throws IOException, ServletException
+--
+- ApplicationFilterConfig[] filters
+}
+
+class Filter {
++ void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) \
+        throws IOException, ServletException
+--
+}
+
+ApplicationFilterChain <..> Filter
+
+note "采用了拦截过滤器模式" as N1
+
+@enduml

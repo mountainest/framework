@@ -1,4 +1,4 @@
-GET {{domain}}/{{server_name}}/test
+GET {{domain}}/{{server_name}}/test?id=1&name=tom
 Accept-Language: zh-CN
 
 ###

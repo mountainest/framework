@@ -22,4 +22,4 @@ management:
       prometheus:
         enabled: true
     tags:
-      application: ${server.servlet.context-path}
+      servername: ${server.servlet.context-path}

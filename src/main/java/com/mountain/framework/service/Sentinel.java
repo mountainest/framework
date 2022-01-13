@@ -10,14 +10,14 @@ import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
+@Service
 @Slf4j
 public class Sentinel {
-    public static void main() {
-        Sentinel.initFlowRules();
-
+    public void run() {
         while (true){
-            Sentinel.callResource1();
+            this.callResource1();
 
             try {
                 Thread.sleep(500L);
@@ -40,7 +40,7 @@ public class Sentinel {
         FlowRuleManager.loadRules(flowRuleList);
     }
 
-    public static void callResource1() {
+    public void callResource1() {
         try (Entry entry = SphU.entry("resource1")) {
             log.info("resource1执行成功");
         } catch (BlockException e) {
@@ -49,7 +49,8 @@ public class Sentinel {
     }
 
     @SentinelResource("resource2")
-    public static void callResource2() {
+    public void callResource2() {
+        // 注解方式未搞定
         log.info("resource2执行成功");
     }
 }

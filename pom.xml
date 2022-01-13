@@ -67,6 +67,12 @@
 			<artifactId>sentinel-core</artifactId>
 			<version>1.8.3</version>
 		</dependency>
+		<!-- 仅注解@SentinelResource方式限流，需要该包 -->
+		<dependency>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-annotation-aspectj</artifactId>
+			<version>1.8.3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.micrometer</groupId>

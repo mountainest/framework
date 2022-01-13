@@ -15,7 +15,16 @@ import lombok.extern.slf4j.Slf4j;
 public class Sentinel {
     public static void main() {
         Sentinel.initFlowRules();
-        Sentinel.callResource1();
+
+        while (true){
+            Sentinel.callResource1();
+
+            try {
+                Thread.sleep(500L);
+            } catch (InterruptedException e) {
+                log.error("休眠失败。", e);
+            }
+        }
     }
 
     public static void initFlowRules() {
@@ -32,18 +41,10 @@ public class Sentinel {
     }
 
     public static void callResource1() {
-        while (true) {
-            try (Entry entry = SphU.entry("resource1")) {
-                log.info("resource1执行成功");
-            } catch (BlockException e) {
-                log.error("限流中");
-            }
-
-            try {
-                Thread.sleep(500L);
-            } catch (InterruptedException e) {
-                log.error("休眠失败。", e);
-            }
+        try (Entry entry = SphU.entry("resource1")) {
+            log.info("resource1执行成功");
+        } catch (BlockException e) {
+            log.error("限流中");
         }
     }
 

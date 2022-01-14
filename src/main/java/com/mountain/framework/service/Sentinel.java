@@ -2,6 +2,7 @@ package com.mountain.framework.service;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.Tracer;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.context.ContextUtil;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
@@ -38,7 +39,10 @@ public class Sentinel {
         try (Entry entry = SphU.entry("resource1")) {
             log.info("resource1执行成功");
         } catch (BlockException e) {
-            log.error("resource1限流中");
+            log.error("resource1限流中，熔断、系统过载等都是该异常。");
+        } catch (Throwable e) {
+            Tracer.trace(e);
+            log.error("如果需要统计业务异常，加该分支。SentinelResource注解会自动统计业务异常。");
         }
 
         ContextUtil.exit();

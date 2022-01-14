@@ -80,6 +80,12 @@
 			<artifactId>sentinel-transport-simple-http</artifactId>
 			<version>${sentinel.version}</version>
 		</dependency>
+		<!-- 只有进行热点参数限流，才需要 -->
+		<dependency>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-parameter-flow-control</artifactId>
+			<version>${sentinel.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.micrometer</groupId>

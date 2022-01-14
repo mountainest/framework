@@ -53,9 +53,13 @@ public class Sentinel {
         ContextUtil.exit();
     }
 
-    @SentinelResource("resource2")
+    @SentinelResource(value = "resource2", blockHandler = "handlerBlock")
     public void callResource2() {
         // 注解方式未搞定
         log.info("resource2执行成功");
+    }
+
+    public void handlerBlock(BlockException ex) {
+        log.error("限流中");
     }
 }

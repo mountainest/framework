@@ -3,6 +3,7 @@ package com.mountain.framework.service;
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.context.ContextUtil;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
@@ -41,11 +42,15 @@ public class Sentinel {
     }
 
     public void callResource1() {
+        ContextUtil.enter("entrance1", "app1");
+
         try (Entry entry = SphU.entry("resource1")) {
             log.info("resource1执行成功");
         } catch (BlockException e) {
             log.error("限流中");
         }
+
+        ContextUtil.exit();
     }
 
     @SentinelResource("resource2")

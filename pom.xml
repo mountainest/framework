@@ -74,6 +74,12 @@
 			<artifactId>sentinel-annotation-aspectj</artifactId>
 			<version>${sentinel.version}</version>
 		</dependency>
+		<!-- 接入sentinel的控制台，才需要。并且控制台只是demo，不支持集群 -->
+		<dependency>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-transport-simple-http</artifactId>
+			<version>${sentinel.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.micrometer</groupId>

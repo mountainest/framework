@@ -33,7 +33,7 @@ public class ParamController {
             this.sentinel.callResource2();
 
             try {
-                Thread.sleep(500L);
+                Thread.sleep(100L);
             } catch (InterruptedException e) {
                 log.error("休眠失败。", e);
             }

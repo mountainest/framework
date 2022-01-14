@@ -16,22 +16,13 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class Sentinel {
-    public void run() {
-        while (true){
-            this.callResource1();
-
-            try {
-                Thread.sleep(500L);
-            } catch (InterruptedException e) {
-                log.error("休眠失败。", e);
-            }
-        }
-    }
-
+    /**
+     * 可以不设置规则，直接在控制台上配置。但是要先有请求访问。
+     */
     public static void initFlowRules() {
         List<FlowRule> flowRuleList = new ArrayList<>(2);
 
-        FlowRule rule1 = new FlowRule("resource1");
+        FlowRule rule1 = new FlowRule("resource2");
         rule1.setGrade(RuleConstant.FLOW_GRADE_QPS);
         rule1.setControlBehavior(RuleConstant.CONTROL_BEHAVIOR_RATE_LIMITER);
         rule1.setCount(0.5);
@@ -47,7 +38,7 @@ public class Sentinel {
         try (Entry entry = SphU.entry("resource1")) {
             log.info("resource1执行成功");
         } catch (BlockException e) {
-            log.error("限流中");
+            log.error("resource1限流中");
         }
 
         ContextUtil.exit();
@@ -60,6 +51,6 @@ public class Sentinel {
     }
 
     public void handlerBlock(BlockException ex) {
-        log.error("限流中");
+        log.error("resource2限流中");
     }
 }

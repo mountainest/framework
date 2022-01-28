@@ -7,10 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @SpringBootApplication
-public class FrameworkApplication {
+public class TaskApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FrameworkApplication.class, args);
+		SpringApplication.run(TaskApplication.class, args);
 		Sentinel.initFlowRules();
 	}
 

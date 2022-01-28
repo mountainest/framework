@@ -7,7 +7,6 @@ import com.mountain.framework.utils.Response;
 import feign.Feign;
 import feign.FeignException;
 import feign.Logger.Level;
-import feign.Request.Options;
 import feign.RequestTemplate;
 import feign.Target.EmptyTarget;
 import feign.Util;
@@ -21,7 +20,6 @@ import java.lang.reflect.Type;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

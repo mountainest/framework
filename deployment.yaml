@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: framework1
+  namespace: default
+  labels:
+    app: framework1
+spec:
+  ports:
+    - port: 6666
+      targetPort: 6666
+  selector:
+    app: framework1
+  # ClusterIP 方式对内暴露服务， NodePort、LoadBalancer 方式对外暴露服务
+  type: LoadBalancer
+
+---
+# 版本号固定
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: framework1
+  labels:
+    app: framework1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: framework1
+  template:
+    metadata:
+      labels:
+        app: framework1
+    spec:
+      containers:
+        - name: framework1
+          image: framework1:v1
+          ports:
+            - containerPort: 6666
+              protocol: TCP

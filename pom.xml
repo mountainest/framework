@@ -15,10 +15,12 @@
 	</parent>
 	<groupId>com.mountain</groupId>
 	<artifactId>framework</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<name>framework</name>
 	<description>通用基础框架</description>
 	<properties>
+		<revision>0.0.1-SHAPSHOT</revision>
+
 		<java.version>11</java.version>
 		<spring.boot.version>2.6.2</spring.boot.version>
 		<lombok.version>1.18.22</lombok.version>

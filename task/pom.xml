@@ -7,12 +7,12 @@
   <parent>
     <groupId>com.mountain</groupId>
     <artifactId>framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
   </parent>
 
   <artifactId>task</artifactId>
   <packaging>jar</packaging>
-  <name>${project.artifactId} ${project.version}</name>
+  <name>${project.artifactId}-${project.version}</name>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>

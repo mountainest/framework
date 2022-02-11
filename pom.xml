@@ -16,7 +16,7 @@
 	</parent>
 	<groupId>com.mountain</groupId>
 	<artifactId>framework</artifactId>
-	<version>0.0.1-SHAPSHOT</version>
+	<version>${revision}</version>
 	<name>framework</name>
 	<description>通用基础框架</description>
 	<properties>

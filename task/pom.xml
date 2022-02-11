@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.mountain</groupId>
     <artifactId>framework</artifactId>
-    <version>${revision}</version>
+    <version>0.0.1-SHAPSHOT</version>
   </parent>
 
   <artifactId>task</artifactId>

@@ -23,7 +23,7 @@ public class ParamController {
 
     @GetMapping("/test")
     public Response testGet(@NotNull @RequestParam Long id, @NotBlank String name) {
-        this.run();
+//        this.run();
         return Response.success();
     }
 

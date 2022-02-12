@@ -5,8 +5,18 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: test
+        - id: test_route
           predicates:
-          - Path=/test
-          uri: https://www.baidu.com
+          - Path=/info
+          uri: http://localhost:6667/info
+        - id: framework_route
+          predicates:
+            - Path=/framework/**
+          uri: http://localhost:6666
+        - id: url-proxy
+          uri: https://blog.csdn.net
+          predicates:
+            - Path=/csdn/**
+          filters:
+            - RewritePath=/csdn/(?<segment>.*), /$\{segment}
 

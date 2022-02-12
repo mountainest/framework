@@ -12,7 +12,6 @@
 
   <artifactId>task</artifactId>
   <packaging>jar</packaging>
-  <name>${project.artifactId}-${project.version}</name>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>

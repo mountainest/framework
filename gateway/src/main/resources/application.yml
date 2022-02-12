@@ -1,0 +1,12 @@
+server:
+  port: 6667
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test
+          predicates:
+          - Path=/test
+          uri: https://www.baidu.com
+

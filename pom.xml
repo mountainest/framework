@@ -9,12 +9,6 @@
 		<module>commons</module>
 	</modules>
 
-  <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
 	<groupId>com.mountain</groupId>
 	<artifactId>framework</artifactId>
 	<version>${revision}</version>
@@ -31,6 +25,9 @@
 
 		<sentinel.version>1.8.3</sentinel.version>
 		<prometheus.version>1.8.2</prometheus.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<!-- 所有子项目的依赖 -->
@@ -50,6 +47,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -120,6 +119,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
 			</plugin>
 		</plugins>
 	</build>

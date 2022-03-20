@@ -18,6 +18,11 @@
       <artifactId>mybatis-plus-boot-starter</artifactId>
       <version>3.5.1</version>
     </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>common-protocol</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

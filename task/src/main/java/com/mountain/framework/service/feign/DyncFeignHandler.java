@@ -52,6 +52,7 @@ public class DyncFeignHandler {
             .target(EmptyTarget.create(DyncFeign.class));
     }
 
+    @SuppressWarnings("unchecked")
     public Response call(String url, String strHeader, ReqDto req) {
         URI uri;
         try {

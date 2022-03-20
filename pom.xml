@@ -116,6 +116,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.9.0</version>
 				<configuration>
+					<!-- maven编译参数 -->
 					<compilerArgs>
 						<arg>-Xlint:unchecked</arg>
 					</compilerArgs>

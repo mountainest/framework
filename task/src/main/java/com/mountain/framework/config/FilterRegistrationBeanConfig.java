@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilterRegistrationBeanConfig {
+    @SuppressWarnings("unchecked")
     @Bean
     public FilterRegistrationBean config() {
         FilterRegistrationBean bean = new FilterRegistrationBean();

@@ -1,5 +1,5 @@
 server:
-  port: 6667
+  port: 9000
 
 spring:
   cloud:
@@ -8,11 +8,11 @@ spring:
         - id: test_route
           predicates:
           - Path=/info
-          uri: http://localhost:6667/info
+          uri: http://localhost:9000/info
         - id: framework_route
           predicates:
             - Path=/framework/**
-          uri: http://localhost:6666
+          uri: http://localhost:9001
         - id: url-proxy
           uri: https://blog.csdn.net
           predicates:

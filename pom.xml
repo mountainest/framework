@@ -9,7 +9,7 @@
 		<module>commons</module>
 	</modules>
 
-	<groupId>com.mountain</groupId>
+	<groupId>com.github.mountainest</groupId>
 	<artifactId>framework</artifactId>
 	<version>${revision}</version>
 	<name>framework</name>

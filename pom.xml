@@ -13,6 +13,7 @@
 	<artifactId>framework</artifactId>
 	<version>${revision}</version>
 	<name>framework</name>
+	<url>https://github.com/mountainest/framework</url>
 	<description>通用基础框架</description>
 	<properties>
 		<revision>0.0.1-SHAPSHOT</revision>
@@ -25,6 +26,11 @@
 
 		<sentinel.version>1.8.3</sentinel.version>
 		<prometheus.version>1.8.2</prometheus.version>
+
+		<!-- 发布到maven仓 -->
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
 
 		<java.version>8</java.version>
 		<maven.compiler.source>8</maven.compiler.source>
@@ -130,6 +136,7 @@
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -141,8 +148,67 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
+
+			<!-- 发布到maven仓 -->
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<charset>UTF-8</charset>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>snapshot</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<maven.javadoc.skip>false</maven.javadoc.skip>
+			</properties>
+
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<distributionManagement>
 		<repository>
@@ -154,4 +220,25 @@
 			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<scm>
+		<url>https://github.com/mountainest/framework</url>
+	</scm>
+	<developers>
+		<developer>
+			<name>mountainest</name>
+			<email>mountainest@sina.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 </project>

@@ -1,2 +1,12 @@
 logging:
   config: classpath:log/log4j2-local.xml
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.test.com
+        namespace: 526994a0-4395-44b1-90a0-a4ea229f7178
+        file-extension: yaml
+        extension-configs:
+          - data-id: user-center.yaml

@@ -1,9 +1,11 @@
 package io.github.mountainest;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@MapperScan("io.github.mountainest.mapper")
 @EnableFeignClients
 @SpringBootApplication
 public class Application {

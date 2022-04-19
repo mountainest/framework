@@ -37,6 +37,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
+    <!-- nacos和新版本的springboot不兼容 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
     <!-- 参数校验：在 SpringBoot 2.4 以前，web-starter默认引入 spring-boot-starter-validation 包，
     而自 SpringBoot 2.4.0 以后官方将其排除，需要单独引入spring-boot-starter-validation包。
     注意是starter包，否则需要手动配置，不然校验不生效。 -->

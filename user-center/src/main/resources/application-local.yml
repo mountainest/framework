@@ -10,3 +10,8 @@ spring:
         file-extension: yaml
         extension-configs:
           - data-id: user-center.yaml
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://aaa:5432/db1
+#    username: aa
+#    password: aa

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Appenders>
+  <Console name="Console" target="SYSTEM_OUT">
+    <PatternLayout pattern="${pattern}"/>
+  </Console>
+  <Console name="color.Console" target="SYSTEM_OUT">
+    <PatternLayout pattern="${color.pattern}" disableAnsi="false"/>
+  </Console>
+
+  <File name="File" fileName="${log.path}/${filename}.log">
+    <PatternLayout pattern="${pattern}"/>
+  </File>
+
+  <!-- createOnDemand有日志时，才会创建filename文件。 -->
+  <RollingFile name="trace.rolling.file"
+    createOnDemand="true" fileName="${log.path}/${trace.filename}.log"
+    filePattern="${trace.filePattern}">
+    <Filters>
+      <ThresholdFilter level="debug" onMatch="DENY" onMismatch="NEUTRAL"/>
+      <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+    </Filters>
+    <DefaultRolloverStrategy>
+      <Delete basePath="${log.path}" maxDepth="2">
+        <IfLastModified age="2d" />
+      </Delete>
+    </DefaultRolloverStrategy>
+    <Policies>
+      <OnStartupTriggeringPolicy />
+      <SizeBasedTriggeringPolicy size="20 MB" />
+      <TimeBasedTriggeringPolicy />
+    </Policies>
+    <PatternLayout>
+      <pattern>${pattern}</pattern>
+    </PatternLayout>
+  </RollingFile>
+
+  <RollingFile name="debug.rolling.file"
+    createOnDemand="true" fileName="${log.path}/${debug.filename}.log"
+    filePattern="${debug.filePattern}">
+    <Filters>
+      <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+      <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+    </Filters>
+    <DefaultRolloverStrategy>
+      <Delete basePath="${log.path}" maxDepth="2">
+        <IfLastModified age="7d" />
+      </Delete>
+    </DefaultRolloverStrategy>
+    <Policies>
+      <OnStartupTriggeringPolicy />
+      <SizeBasedTriggeringPolicy size="20 MB" />
+      <TimeBasedTriggeringPolicy />
+    </Policies>
+    <PatternLayout>
+      <pattern>${pattern}</pattern>
+    </PatternLayout>
+  </RollingFile>
+
+  <RollingFile name="info.rolling.file"
+    createOnDemand="true" fileName="${log.path}/${info.filename}.log"
+    filePattern="${info.filePattern}">
+    <Filters>
+      <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+      <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+    </Filters>
+    <DefaultRolloverStrategy>
+      <Delete basePath="${log.path}" maxDepth="2">
+        <IfLastModified age="15d" />
+      </Delete>
+    </DefaultRolloverStrategy>
+    <Policies>
+      <OnStartupTriggeringPolicy/>
+      <SizeBasedTriggeringPolicy size="20 MB" />
+      <TimeBasedTriggeringPolicy />
+    </Policies>
+    <PatternLayout>
+      <pattern>${pattern}</pattern>
+    </PatternLayout>
+  </RollingFile>
+
+  <RollingFile name="warn.rolling.file"
+    createOnDemand="true" fileName="${log.path}/${warn.filename}.log"
+    filePattern="${warn.filePattern}">
+    <Filters>
+      <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+      <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+    </Filters>
+    <DefaultRolloverStrategy>
+      <Delete basePath="${log.path}" maxDepth="2">
+        <IfLastModified age="30d" />
+      </Delete>
+    </DefaultRolloverStrategy>
+    <Policies>
+      <OnStartupTriggeringPolicy />
+      <SizeBasedTriggeringPolicy size="20 MB" />
+      <TimeBasedTriggeringPolicy />
+    </Policies>
+    <PatternLayout>
+      <pattern>${pattern}</pattern>
+    </PatternLayout>
+  </RollingFile>
+
+  <RollingFile name="error.rolling.file"
+    createOnDemand="true" fileName="${log.path}/${error.filename}.log"
+    filePattern="${error.filePattern}">
+    <Filters>
+      <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+    </Filters>
+    <DefaultRolloverStrategy>
+      <Delete basePath="${log.path}" maxDepth="2">
+        <IfLastModified age="90d" />
+      </Delete>
+    </DefaultRolloverStrategy>
+    <Policies>
+      <OnStartupTriggeringPolicy />
+      <SizeBasedTriggeringPolicy size="20 MB" />
+      <TimeBasedTriggeringPolicy />
+    </Policies>
+    <PatternLayout>
+      <pattern>${pattern}</pattern>
+    </PatternLayout>
+  </RollingFile>
+</Appenders>

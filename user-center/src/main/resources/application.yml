@@ -1,0 +1,25 @@
+server:
+  servlet:
+    context-path: /user-center
+  port: 9101
+
+spring:
+  profiles:
+    active: local
+
+management:
+  server:
+    port: 8000
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      servername: ${server.servlet.context-path}

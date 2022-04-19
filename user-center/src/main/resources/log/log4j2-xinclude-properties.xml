@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+  <Property name="log.level">info</Property>
+  <Property name="log.path">logs</Property>
+  <Property name="filename">user-center</Property>
+  <!-- 指定零时区，去除彩色 -->
+  <Property name="pattern">
+    %d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+0} [%-5level] [%t: %class{1.}] %method:%L - %msg%n
+  </Property>
+  <!-- 彩色输出 -->
+  <Property name="color.pattern">
+    %d{yyyy-MM-dd HH:mm:ss.SSS} [%highlight{%-5level}] [%t: %class{1.}] %method:%L - %msg%n
+  </Property>
+
+  <Property name="error.filename">${filename}-error</Property>
+  <Property name="warn.filename">${filename}-warn</Property>
+  <Property name="info.filename">${filename}-info</Property>
+  <Property name="debug.filename">${filename}-debug</Property>
+  <Property name="trace.filename">${filename}-trace</Property>
+
+  <Property name="rolling.filename.suffix">%d{yyyy-MM-dd}-%i.log</Property>
+  <Property name="error.filePattern">${log.path}/%d{yyyy-MM}/${error.filename}-${rolling.filename.suffix}</Property>
+  <Property name="warn.filePattern">${log.path}/%d{yyyy-MM}/${warn.filename}-${rolling.filename.suffix}</Property>
+  <Property name="info.filePattern">${log.path}/%d{yyyy-MM}/${info.filename}-${rolling.filename.suffix}</Property>
+  <Property name="debug.filePattern">${log.path}/%d{yyyy-MM}/${debug.filename}-${rolling.filename.suffix}</Property>
+  <Property name="trace.filePattern">${log.path}/%d{yyyy-MM}/${trace.filename}-${rolling.filename.suffix}</Property>
+</Properties>

@@ -13,7 +13,7 @@ public class BasePo {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updaterUid;
     @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
+    private Date ctime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
+    private Date utime;
 }

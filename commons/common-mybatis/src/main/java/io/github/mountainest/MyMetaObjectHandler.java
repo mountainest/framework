@@ -14,7 +14,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         Date date = new Date();
         String uid = this.getUid();
 
-        strictInsertFill(metaObject, "creator", String.class, uid);
+        strictInsertFill(metaObject, "creator_uid", String.class, uid);
         strictInsertFill(metaObject, "ctime", Date.class, date);
 
         this.fill(metaObject, uid, date);
@@ -29,7 +29,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     }
 
     private void fill(MetaObject metaObject, String uid, Date date) {
-        strictUpdateFill(metaObject, "updater", String.class, uid);
+        strictUpdateFill(metaObject, "updater_uid", String.class, uid);
         strictUpdateFill(metaObject, "utime", Date.class, date);
     }
 

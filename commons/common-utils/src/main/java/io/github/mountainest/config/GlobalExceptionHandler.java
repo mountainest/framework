@@ -73,4 +73,10 @@ public class GlobalExceptionHandler {
     public Result handleException(ResultException e) {
         return Result.fail(e.getCode());
     }
+
+    @ExceptionHandler(value = Exception.class)
+    protected Result exception(Exception e) {
+        log.error("未知的异常：", e);
+        return Result.fail(ErrCode.INTERNAL_SERVER_ERROR);
+    }
 }

@@ -3,12 +3,15 @@ package io.github.mountainest.po;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.github.mountainest.BasePo;
 
+import javax.validation.constraints.NotNull;
+
 @TableName("uc_user_t")
 public class UserPo extends BasePo {
     private Long id;
     /**
      * 唯一标识，同一个用户稳定不变
      */
+    @NotNull
     private Long uid;
     /**
      * 用户工号

@@ -90,8 +90,12 @@
     </dependency>
 
     <dependency>
-      <groupId>${groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>common-mybatis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>common-utils</artifactId>
     </dependency>
 
     <dependency>

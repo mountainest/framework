@@ -63,10 +63,14 @@
 				<artifactId>common-mybatis</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>common-protocol</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>common-utils</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

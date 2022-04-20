@@ -1,5 +1,8 @@
-package io.github.mountainest;
+package io.github.mountainest.config;
 
+import io.github.mountainest.ErrCode;
+import io.github.mountainest.Result;
+import io.github.mountainest.ResultException;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.validation.FieldError;

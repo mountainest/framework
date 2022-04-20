@@ -3,6 +3,7 @@ package io.github.mountainest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @ApiModel(value = "响应")
 @Getter
@@ -22,6 +23,10 @@ public class Result<T> {
 
     public static Result fail(int code) {
         return new Result(code, MessageUtils.getMessage(code), null);
+    }
+
+    public static Result fail(String msg) {
+        return new Result(HttpStatus.BAD_REQUEST.value(), msg, null);
     }
 
     private Result(int code, String msg, T data) {

@@ -2,7 +2,6 @@ package io.github.mountainest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.engine.path.PathImpl;
-import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -36,7 +35,7 @@ public class GlobalExceptionHandler {
         }
 
         log.error("未知的校验错误。", e);
-        return Result.fail(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return Result.fail(ErrCode.INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -54,7 +53,7 @@ public class GlobalExceptionHandler {
         }
 
         log.error("未知的校验错误。", e);
-        return Result.fail(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return Result.fail(ErrCode.INTERNAL_SERVER_ERROR);
     }
 
     /**

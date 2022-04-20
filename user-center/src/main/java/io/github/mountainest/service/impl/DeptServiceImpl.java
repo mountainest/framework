@@ -1,8 +1,10 @@
 package io.github.mountainest.service.impl;
 
 import io.github.mountainest.db.IDeptDbService;
+import io.github.mountainest.dto.DeptDto;
 import io.github.mountainest.po.DeptPo;
 import io.github.mountainest.service.IDeptService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +15,9 @@ public class DeptServiceImpl implements IDeptService {
     private IDeptDbService deptDbService;
 
     @Override
-    public void save(DeptPo po) {
+    public void save(DeptDto dto) {
+        DeptPo po = new DeptPo();
+        BeanUtils.copyProperties(dto, po);
         this.deptDbService.save(po);
     }
 }

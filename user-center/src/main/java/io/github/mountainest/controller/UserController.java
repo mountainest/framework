@@ -22,7 +22,7 @@ public class UserController {
 
     @ApiOperation("新增用户")
     @PostMapping()
-    public Result add(@Validated @RequestBody UserPo po) {
+    public Result save(@Validated @RequestBody UserPo po) {
         this.userService.save(po);
         return Result.success();
     }

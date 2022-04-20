@@ -1,9 +1,10 @@
 package io.github.mountainest.controller;
 
 import io.github.mountainest.Result;
-import io.github.mountainest.po.DeptPo;
+import io.github.mountainest.dto.DeptDto;
 import io.github.mountainest.service.IDeptService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,9 +20,10 @@ public class DeptController {
     @Resource
     private IDeptService deptService;
 
+    @ApiOperation("新增部门")
     @PostMapping
-    public Result<Void> add(@Validated @RequestBody DeptPo po) {
-        this.deptService.save(po);
+    public Result<Void> save(@Validated @RequestBody DeptDto dto) {
+        this.deptService.save(dto);
         return Result.success();
     }
 }

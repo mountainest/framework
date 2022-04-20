@@ -1,7 +1,7 @@
 package io.github.mountainest.service;
 
-import io.github.mountainest.po.DeptPo;
+import io.github.mountainest.dto.DeptDto;
 
 public interface IDeptService {
-    void save(DeptPo po);
+    void save(DeptDto dto);
 }

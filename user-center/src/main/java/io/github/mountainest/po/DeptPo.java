@@ -10,9 +10,6 @@ import javax.validation.constraints.NotNull;
 @TableName("uc_dept_t")
 public class DeptPo extends BasePo {
     private Long id;
-    /**
-     * 唯一标识，同一个部门稳定不变
-     */
     @ApiModelProperty("唯一标识，同一个部门稳定不变")
     @NotNull
     private Long did;

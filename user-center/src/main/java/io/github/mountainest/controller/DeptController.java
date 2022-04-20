@@ -1,10 +1,9 @@
 package io.github.mountainest.controller;
 
 import io.github.mountainest.Result;
-import io.github.mountainest.po.UserPo;
-import io.github.mountainest.service.IUserService;
+import io.github.mountainest.po.DeptPo;
+import io.github.mountainest.service.IDeptService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,17 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(tags = "用户管理")
-@RequestMapping("/users")
+@Api(tags = "部门管理")
+@RequestMapping("/depts")
 @RestController
-public class UserController {
+public class DeptController {
     @Resource
-    private IUserService userService;
+    private IDeptService deptService;
 
-    @ApiOperation("新增用户")
-    @PostMapping()
-    public Result add(@Validated @RequestBody UserPo po) {
-        this.userService.save(po);
+    @PostMapping
+    public Result<Void> add(@Validated @RequestBody DeptPo po) {
+        this.deptService.save(po);
         return Result.success();
     }
 }

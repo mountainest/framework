@@ -16,15 +16,9 @@ public class UserPo extends BasePo {
     @ApiModelProperty("用户工号")
     @NotBlank
     private String sid;
-    /**
-     * 用户域账号名称
-     */
     @ApiModelProperty("用户域账号名称")
     @NotBlank
     private String adName;
-    /**
-     * 用户名
-     */
     @ApiModelProperty("用户名")
     @NotBlank
     private String nickname;

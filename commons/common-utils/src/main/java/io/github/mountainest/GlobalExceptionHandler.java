@@ -65,4 +65,9 @@ public class GlobalExceptionHandler {
     public Result handleException(MissingServletRequestParameterException e) {
         return Result.fail(e.getLocalizedMessage());
     }
+
+    @ExceptionHandler({ResultException.class})
+    public Result handleException(ResultException e) {
+        return Result.fail(e.getCode());
+    }
 }

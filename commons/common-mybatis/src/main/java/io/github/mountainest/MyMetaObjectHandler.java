@@ -12,9 +12,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         Date date = new Date();
-        String uid = this.getUid();
+        Long uid = this.getUid();
 
-        strictInsertFill(metaObject, "creator_uid", String.class, uid);
+        strictInsertFill(metaObject, "creator_uid", Long.class, uid);
         strictInsertFill(metaObject, "ctime", Date.class, date);
 
         this.fill(metaObject, uid, date);
@@ -23,17 +23,17 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         Date date = new Date();
-        String uid = this.getUid();
+        Long uid = this.getUid();
 
         this.fill(metaObject, uid, date);
     }
 
-    private void fill(MetaObject metaObject, String uid, Date date) {
-        strictUpdateFill(metaObject, "updater_uid", String.class, uid);
+    private void fill(MetaObject metaObject, Long uid, Date date) {
+        strictUpdateFill(metaObject, "updater_uid", Long.class, uid);
         strictUpdateFill(metaObject, "utime", Date.class, date);
     }
 
-    private String getUid() {
+    private Long getUid() {
         return SecurityContext.getUid().orElse(null);
     }
 }

@@ -16,14 +16,16 @@ public class CommonFilter extends GenericFilter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
         throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
-        String uid = req.getHeader(CommonHeader.UID);
-        String tenantId = req.getHeader(CommonHeader.TENANTID);
-        if (StringUtils.isEmpty(uid) || StringUtils.isEmpty(tenantId)) {
+        String strUid = req.getHeader(CommonHeader.UID);
+        String tenantId = req.getHeader(CommonHeader.TENANT_ID);
+        if (StringUtils.isEmpty(strUid) || StringUtils.isEmpty(tenantId)) {
             this.unauthorized(servletResponse);
             return;
         }
 
-        SecurityContext.setHeader(uid, tenantId);
+        Long uid = Long.valueOf(strUid);
+        String reqId = req.getHeader(CommonHeader.REQ_ID);
+        SecurityContext.setHeader(uid, tenantId, reqId);
         filterChain.doFilter(servletRequest, servletResponse);
         SecurityContext.removeHeader();
     }

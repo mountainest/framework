@@ -2,5 +2,6 @@ package io.github.mountainest;
 
 public interface CommonHeader {
     String UID = "x-gw-uid";
-    String TENANTID = "x-gw-tenantid";
+    String TENANT_ID = "x-gw-tenantid";
+    String REQ_ID = "x-gw-reqid";
 }

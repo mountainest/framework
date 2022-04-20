@@ -7,6 +7,11 @@ spring:
   profiles:
     active: local
 
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+
 management:
   server:
     port: 8000

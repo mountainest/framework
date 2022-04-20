@@ -31,5 +31,6 @@ public class CommonFilter extends GenericFilter {
     private void unauthorized(ServletResponse servletResponse) {
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        // response.getWriter().write("x-gw-reqid header is required.");
     }
 }

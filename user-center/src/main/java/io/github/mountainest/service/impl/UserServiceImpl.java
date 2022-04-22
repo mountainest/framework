@@ -17,7 +17,9 @@ public class UserServiceImpl implements IUserService {
     private IUserDbService userDbService;
 
     @Override
-    public void save(UserPo po) {
+    public void save(UserDto dto) {
+        UserPo po = new UserPo();
+        BeanUtils.copyProperties(dto, po);
         this.userDbService.save(po);
     }
 

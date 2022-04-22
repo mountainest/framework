@@ -2,7 +2,6 @@ package io.github.mountainest.controller;
 
 import io.github.mountainest.Result;
 import io.github.mountainest.dto.UserDto;
-import io.github.mountainest.po.UserPo;
 import io.github.mountainest.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,8 +20,8 @@ public class UserController {
 
     @ApiOperation("新增用户")
     @PostMapping()
-    public Result save(@Validated @RequestBody UserPo po) {
-        this.userService.save(po);
+    public Result save(@Validated @RequestBody UserDto dto) {
+        this.userService.save(dto);
         return Result.success();
     }
 

@@ -5,7 +5,9 @@ import io.github.mountainest.dto.DeptDto;
 public interface IDeptService {
     void save(DeptDto dto);
 
-    DeptDto get(Long id);
+    void delete(Long id);
 
     void update(Long id, DeptDto dto);
+
+    DeptDto get(Long id);
 }

@@ -19,18 +19,14 @@ public class DeptServiceImpl implements IDeptService {
     public void save(DeptDto dto) {
         DeptPo po = new DeptPo();
         BeanUtils.copyProperties(dto, po);
-        po.setId(null);
         long did = UUID.randomUUID().hashCode();
         po.setDid(did < 0 ? -did: did);
         this.deptDbService.save(po);
     }
 
     @Override
-    public DeptDto get(Long id) {
-        DeptPo po = this.deptDbService.getById(id);
-        DeptDto dto = new DeptDto();
-        BeanUtils.copyProperties(po, dto);
-        return dto;
+    public void delete(Long id) {
+        this.deptDbService.removeById(id);
     }
 
     @Override
@@ -39,5 +35,13 @@ public class DeptServiceImpl implements IDeptService {
         BeanUtils.copyProperties(dto, po);
         po.setId(id);
         this.deptDbService.updateById(po);
+    }
+
+    @Override
+    public DeptDto get(Long id) {
+        DeptPo po = this.deptDbService.getById(id);
+        DeptDto dto = new DeptDto();
+        BeanUtils.copyProperties(po, dto);
+        return dto;
     }
 }

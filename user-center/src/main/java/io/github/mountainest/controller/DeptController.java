@@ -22,15 +22,23 @@ public class DeptController {
 
     @ApiOperation("新增部门")
     @PostMapping
-    public Result<Void> save(@Validated @RequestBody DeptDto dto) {
+    public Result<Void> save(@Validated({PostMapping.class, Default.class}) @RequestBody DeptDto dto) {
         this.checkLevel(dto.getLevel(), dto.getDidPath());
         this.deptService.save(dto);
         return Result.success();
     }
 
+    @ApiOperation("删除部门")
+    @DeleteMapping("/{id}")
+    public Result<Void> delete(@PathVariable("id") Long id) {
+        this.deptService.delete(id);
+        return Result.success();
+    }
+
     @ApiOperation("修改部门")
     @PutMapping("/{id}")
-    public Result<Void> update(@PathVariable("id") Long id, @Validated({PutMapping.class, Default.class}) @RequestBody DeptDto dto) {
+    public Result<Void> update(@PathVariable("id") Long id,
+            @Validated({PutMapping.class, Default.class}) @RequestBody DeptDto dto) {
         this.checkLevel(dto.getLevel(), dto.getDidPath());
         this.deptService.update(id, dto);
         return Result.success();

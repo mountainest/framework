@@ -7,19 +7,22 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 @NoArgsConstructor
 @Data
 @SuperBuilder
 public class DeptDto extends BasePo {
 //    @TableId
+    @Null(groups = PostMapping.class)
     private Long id;
     @ApiModelProperty("唯一标识，同一个部门稳定不变")
-    @NotNull(groups = PutMapping.class)
+    @Null(groups = PutMapping.class)
     private Long did;
     @JsonProperty("dept_no")
     @ApiModelProperty("部门编号")

@@ -1,5 +1,6 @@
 package io.github.mountainest.dto;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.mountainest.BasePo;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @SuperBuilder
 public class DeptDto extends BasePo {
+//    @TableId
     private Long id;
     @ApiModelProperty("唯一标识，同一个部门稳定不变")
     @NotNull(groups = PutMapping.class)

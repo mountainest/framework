@@ -6,4 +6,6 @@ public interface IDeptService {
     void save(DeptDto dto);
 
     DeptDto get(Long id);
+
+    void update(Long id, DeptDto dto);
 }

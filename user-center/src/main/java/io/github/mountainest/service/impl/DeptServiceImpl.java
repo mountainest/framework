@@ -32,4 +32,12 @@ public class DeptServiceImpl implements IDeptService {
         BeanUtils.copyProperties(po, dto);
         return dto;
     }
+
+    @Override
+    public void update(Long id, DeptDto dto) {
+        DeptPo po = new DeptPo();
+        BeanUtils.copyProperties(dto, po);
+        po.setId(id);
+        this.deptDbService.updateById(po);
+    }
 }

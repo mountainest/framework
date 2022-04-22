@@ -23,6 +23,7 @@ public class DeptServiceImpl implements IDeptService {
         BeanUtils.copyProperties(dto, po);
         long did = UUID.randomUUID().hashCode();
         po.setDid(did < 0 ? -did: did);
+        po.setDidPath("0");
         this.deptDbService.save(po);
     }
 

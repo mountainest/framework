@@ -13,21 +13,10 @@ public class SwaggerConfig {
     @Bean
     public Docket defaultApi() {
         Docket docket=new Docket(DocumentationType.OAS_30)
-//            .enable(true)
             .apiInfo(new ApiInfoBuilder()
-                //.title("swagger-bootstrap-ui-demo RESTful APIs")
-                .description("# swagger-bootstrap-ui-demo RESTful APIs")
-                .termsOfServiceUrl("http://www.xx.com/")
-//                .contact("xx@qq.com")
-                .version("1.0")
+                .title("接口文档")
                 .build())
-            //分组名称
-            .groupName("2.X版本")
-            .select()
-            //这里指定Controller扫描包路径
-            .apis(RequestHandlerSelectors.basePackage("io.github"))
-            .paths(PathSelectors.any())
-            .build();
+            .groupName("0.0.1版本");
         return docket;
     }
 }

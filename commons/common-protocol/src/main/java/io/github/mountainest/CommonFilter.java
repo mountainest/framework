@@ -43,7 +43,7 @@ public class CommonFilter extends GenericFilter {
     private boolean ignoreUrl(String uri) {
 //        WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
 //        GlobalParams globalParams = context.getBean(GlobalParams.class);
-        String[] patterns = {"/*/doc.html", "/*/swagger-resources", "/*/v3/api-docs"};
+        String[] patterns = {"/*/doc.html", "/*/swagger-resources", "/*/v3/api-docs", "/*/webjars/**"};
         for (String pattern: patterns) {
             if (MATCHER.match(pattern, uri)) {
                 return true;

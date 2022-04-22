@@ -14,4 +14,6 @@ public interface IDeptService {
     DeptDto get(Long id);
 
     List<DeptDto> listChildren(Long id);
+
+    DeptDto getParent(Long id);
 }

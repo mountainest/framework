@@ -7,4 +7,9 @@
         FROM "uc_dept_t" t1 LEFT JOIN "uc_dept_t" t2 ON t1.pid = t2.did
         WHERE t2.id = #{id}
     </select>
+    <select id="getParent" resultType="io.github.mountainest.po.DeptPo">
+        SELECT t2.*
+        FROM "uc_dept_t" t1 LEFT JOIN "uc_dept_t" t2 ON t1.pid = t2.did
+        WHERE t1.id = #{id}
+    </select>
 </mapper>

@@ -45,10 +45,10 @@ public class DeptDto extends BasePo {
     @ApiModelProperty("部门主管uid")
     @NotNull
     private Long leaderUid;
-    @JsonProperty("did_path")
-    @ApiModelProperty("部门did路径，从根部门开始，用英文逗号分割")
-    @NotBlank
-    private String didPath;
+//    @JsonProperty("did_path")
+//    @ApiModelProperty("部门did路径，从根部门开始，用英文逗号分割。尽量不使用")
+//    @NotBlank
+//    private String didPath;
 //    @ApiModelProperty("部门名称路径，从根部门开始，用英文逗号分割")
 //    @NotBlank
 //    private String namePath;

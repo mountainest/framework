@@ -25,7 +25,7 @@ public class DeptController {
     @ApiOperation("新增部门")
     @PostMapping
     public Result<Void> save(@Validated({PostMapping.class, Default.class}) @RequestBody DeptDto dto) {
-        this.checkLevel(dto.getLevel(), dto.getDidPath());
+//        this.checkLevel(dto.getLevel(), dto.getDidPath());
         this.deptService.save(dto);
         return Result.success();
     }
@@ -42,7 +42,7 @@ public class DeptController {
     @PutMapping("/{id}")
     public Result<Void> update(@PathVariable("id") Long id,
             @Validated({PutMapping.class, Default.class}) @RequestBody DeptDto dto) {
-        this.checkLevel(dto.getLevel(), dto.getDidPath());
+//        this.checkLevel(dto.getLevel(), dto.getDidPath());
         this.deptService.update(id, dto);
         return Result.success();
     }
@@ -51,6 +51,18 @@ public class DeptController {
     @GetMapping("/{id}")
     public Result<DeptDto> get(@PathVariable("id") Long id) {
         return Result.success(this.deptService.get(id));
+    }
+
+    @ApiOperation("查询子部门")
+    @GetMapping("/{id}/children")
+    public Result<List<DeptDto>> getChildren(@PathVariable("id") Long id) {
+        return Result.success(this.deptService.listChildren(id));
+    }
+
+    @ApiOperation("查询父部门")
+    @GetMapping("/{id}/parent")
+    public Result<DeptDto> getParent(@PathVariable("id") Long id) {
+        return Result.success(this.deptService.getParent(id));
     }
 
     private void checkLevel(Short level, String didPath) {

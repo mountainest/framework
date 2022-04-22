@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -38,6 +37,7 @@ public class DeptServiceImpl implements IDeptService {
         BeanUtils.copyProperties(dto, po);
         po.setId(id);
         this.deptDbService.updateById(po);
+        // TODO： 如果修改了pid，要修改didPath
     }
 
     @Override
@@ -58,5 +58,10 @@ public class DeptServiceImpl implements IDeptService {
         }).collect(Collectors.toList());
 
         return dtoList;
+    }
+
+    @Override
+    public DeptDto getParent(Long id) {
+        return this.deptDbService.getParent(id);
     }
 }

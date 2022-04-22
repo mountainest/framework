@@ -2,6 +2,8 @@ package io.github.mountainest.service;
 
 import io.github.mountainest.dto.DeptDto;
 
+import java.util.List;
+
 public interface IDeptService {
     void save(DeptDto dto);
 
@@ -10,4 +12,6 @@ public interface IDeptService {
     void update(Long id, DeptDto dto);
 
     DeptDto get(Long id);
+
+    List<DeptDto> listChildren(Long id);
 }

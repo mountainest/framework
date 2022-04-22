@@ -8,7 +8,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class DeptServiceImpl implements IDeptService {
@@ -43,5 +46,17 @@ public class DeptServiceImpl implements IDeptService {
         DeptDto dto = new DeptDto();
         BeanUtils.copyProperties(po, dto);
         return dto;
+    }
+
+    @Override
+    public List<DeptDto> listChildren(Long id) {
+        List<DeptPo> poList = this.deptDbService.listChildren(id);
+        List<DeptDto> dtoList = poList.stream().map(po -> {
+            DeptDto dto = new DeptDto();
+            BeanUtils.copyProperties(po, dto);
+            return dto;
+        }).collect(Collectors.toList());
+
+        return dtoList;
     }
 }

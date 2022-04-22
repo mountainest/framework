@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.github.mountainest.mapper.DeptMapper">
+    <select id="listChildren" resultType="io.github.mountainest.po.DeptPo">
+        SELECT t1.*
+        FROM "uc_dept_t" t1 LEFT JOIN "uc_dept_t" t2 ON t1.pid = t2.did
+        WHERE t2.id = #{id}
+    </select>
+</mapper>

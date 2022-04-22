@@ -7,11 +7,13 @@ import io.github.mountainest.dto.DeptDto;
 import io.github.mountainest.service.IDeptService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.util.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.groups.Default;
+import java.util.List;
 
 @Api(tags = "部门管理")
 @RequestMapping("/depts")
@@ -31,6 +33,7 @@ public class DeptController {
     @ApiOperation("删除部门")
     @DeleteMapping("/{id}")
     public Result<Void> delete(@PathVariable("id") Long id) {
+        this.checkChildren(id);
         this.deptService.delete(id);
         return Result.success();
     }
@@ -54,6 +57,18 @@ public class DeptController {
         int num = didPath.split(",").length;
         if (level + 1 != num) {
             throw new ResultException(ErrCode.DEPT_LEVEL_ERROR);
+        }
+    }
+
+    /**
+     * 删除部门时，不能存在子部门
+     * @param id
+     */
+    private void checkChildren(Long id) {
+        // 查找子部门
+        List<DeptDto> list = this.deptService.listChildren(id);
+        if (!CollectionUtils.isEmpty(list)) {
+            throw new ResultException(ErrCode.EXSITED_CHILDREN_DEPT);
         }
     }
 }

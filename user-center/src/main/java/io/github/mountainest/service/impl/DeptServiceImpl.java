@@ -19,7 +19,17 @@ public class DeptServiceImpl implements IDeptService {
     public void save(DeptDto dto) {
         DeptPo po = new DeptPo();
         BeanUtils.copyProperties(dto, po);
-        po.setDid((long)UUID.randomUUID().hashCode());
+        po.setId(null);
+        long did = UUID.randomUUID().hashCode();
+        po.setDid(did < 0 ? -did: did);
         this.deptDbService.save(po);
+    }
+
+    @Override
+    public DeptDto get(Long id) {
+        DeptPo po = this.deptDbService.getById(id);
+        DeptDto dto = new DeptDto();
+        BeanUtils.copyProperties(po, dto);
+        return dto;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 @Service
 public class DeptServiceImpl implements IDeptService {
@@ -18,6 +19,7 @@ public class DeptServiceImpl implements IDeptService {
     public void save(DeptDto dto) {
         DeptPo po = new DeptPo();
         BeanUtils.copyProperties(dto, po);
+        po.setDid((long)UUID.randomUUID().hashCode());
         this.deptDbService.save(po);
     }
 }

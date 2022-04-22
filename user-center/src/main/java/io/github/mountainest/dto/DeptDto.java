@@ -39,9 +39,9 @@ public class DeptDto extends BasePo {
     @ApiModelProperty("部门did路径，从根部门开始，用英文逗号分割")
     @NotBlank
     private String didPath;
-    @ApiModelProperty("部门名称路径，从根部门开始，用英文逗号分割")
-    @NotBlank
-    private String namePath;
+//    @ApiModelProperty("部门名称路径，从根部门开始，用英文逗号分割")
+//    @NotBlank
+//    private String namePath;
     @NotNull
     private Boolean enabledFlg;
     private String description;

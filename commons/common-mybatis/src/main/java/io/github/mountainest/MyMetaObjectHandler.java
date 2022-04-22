@@ -14,7 +14,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         Date date = new Date();
         Long uid = this.getUid();
 
-        strictInsertFill(metaObject, "creator_uid", Long.class, uid);
+        strictInsertFill(metaObject, "creatorUid", Long.class, uid);
         strictInsertFill(metaObject, "ctime", Date.class, date);
 
         this.fill(metaObject, uid, date);
@@ -29,7 +29,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     }
 
     private void fill(MetaObject metaObject, Long uid, Date date) {
-        strictUpdateFill(metaObject, "updater_uid", Long.class, uid);
+        strictUpdateFill(metaObject, "updaterUid", Long.class, uid);
         strictUpdateFill(metaObject, "utime", Date.class, date);
     }
 

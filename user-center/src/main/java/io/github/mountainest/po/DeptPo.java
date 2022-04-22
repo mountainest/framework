@@ -3,7 +3,9 @@ package io.github.mountainest.po;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.github.mountainest.BasePo;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @TableName("uc_dept_t")
 public class DeptPo extends BasePo {
     private Long id;
@@ -13,7 +15,7 @@ public class DeptPo extends BasePo {
     private String deptNo;
     @ApiModelProperty("部门名称")
     private String name;
-    @ApiModelProperty("排序号，同一层级内排序")
+    @ApiModelProperty("排序号，同一层级内排序，默认100")
     private Short sortNo;
     @ApiModelProperty("上级部门did，根部门id为0")
     private Long pid;

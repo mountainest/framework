@@ -9,4 +9,6 @@ public interface IUserService {
     void save(UserPo po);
 
     List<UserDto> list();
+
+    UserDto getById(Long id);
 }

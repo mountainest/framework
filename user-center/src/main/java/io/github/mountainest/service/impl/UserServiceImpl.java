@@ -30,4 +30,12 @@ public class UserServiceImpl implements IUserService {
             return dto;
         }).collect(Collectors.toList());
     }
+
+    @Override
+    public UserDto getById(Long id) {
+        UserPo po = this.userDbService.getById(id);
+        UserDto dto = new UserDto();
+        BeanUtils.copyProperties(po, dto);
+        return dto;
+    }
 }

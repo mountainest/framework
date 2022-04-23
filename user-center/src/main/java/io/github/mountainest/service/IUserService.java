@@ -10,4 +10,6 @@ public interface IUserService {
     List<UserDto> list();
 
     UserDto getById(Long id);
+
+    UserDto getOne(Long uid);
 }

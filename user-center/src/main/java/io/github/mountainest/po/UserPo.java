@@ -3,10 +3,12 @@ package io.github.mountainest.po;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.github.mountainest.BasePo;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Data
 @TableName("uc_user_t")
 public class UserPo extends BasePo {
     private Long id;

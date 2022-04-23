@@ -27,8 +27,14 @@ public class UserController {
 
     @ApiOperation("查询单个用户信息")
     @GetMapping("/{id}")
-    public Result<UserDto> list(@PathVariable("id") Long id) {
+    public Result<UserDto> getById(@PathVariable("id") Long id) {
         return Result.success(this.userService.getById(id));
+    }
+
+    @ApiOperation("根据条件查询单个用户信息")
+    @GetMapping("/one")
+    public Result<UserDto> getOne(@RequestParam("uid") Long uid) {
+        return Result.success(this.userService.getOne(uid));
     }
 
     @ApiOperation("查询用户列表")

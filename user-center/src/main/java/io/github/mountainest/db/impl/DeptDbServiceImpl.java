@@ -1,5 +1,6 @@
 package io.github.mountainest.db.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.mountainest.db.IDeptDbService;
 import io.github.mountainest.dto.DeptDto;
@@ -23,5 +24,12 @@ public class DeptDbServiceImpl extends ServiceImpl<DeptMapper, DeptPo> implement
     @Override
     public DeptDto getParent(Long id) {
         return this.deptMapper.getParent(id);
+    }
+
+    @Override
+    public DeptPo getOne(Long did) {
+        LambdaQueryWrapper<DeptPo> wrapper = new LambdaQueryWrapper<DeptPo>()
+            .eq(DeptPo::getDid, did);
+        return this.getOne(wrapper);
     }
 }

@@ -53,6 +53,12 @@ public class DeptController {
         return Result.success(this.deptService.get(id));
     }
 
+    @ApiOperation("根据部门唯一标识查询部门")
+    @GetMapping("/one")
+    public Result<DeptDto> getOne(@RequestParam("did") Long did) {
+        return Result.success(this.deptService.getOne(did));
+    }
+
     @ApiOperation("查询子部门")
     @GetMapping("/{id}/children")
     public Result<List<DeptDto>> getChildren(@PathVariable("id") Long id) {

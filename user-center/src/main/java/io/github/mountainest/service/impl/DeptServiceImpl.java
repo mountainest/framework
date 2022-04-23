@@ -50,6 +50,14 @@ public class DeptServiceImpl implements IDeptService {
     }
 
     @Override
+    public DeptDto getOne(Long did) {
+        DeptPo po = this.deptDbService.getOne(did);
+        DeptDto dto = new DeptDto();
+        BeanUtils.copyProperties(po, dto);
+        return dto;
+    }
+
+    @Override
     public List<DeptDto> listChildren(Long id) {
         List<DeptPo> poList = this.deptDbService.listChildren(id);
         List<DeptDto> dtoList = poList.stream().map(po -> {

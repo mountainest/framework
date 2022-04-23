@@ -13,6 +13,8 @@ public interface IDeptService {
 
     DeptDto get(Long id);
 
+    DeptDto getOne(Long did);
+
     List<DeptDto> listChildren(Long id);
 
     DeptDto getParent(Long id);

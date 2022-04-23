@@ -10,4 +10,6 @@ public interface IDeptDbService extends IService<DeptPo> {
     List<DeptPo> listChildren(Long id);
 
     DeptDto getParent(Long id);
+
+    DeptPo getOne(Long did);
 }

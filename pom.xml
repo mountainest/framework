@@ -17,7 +17,7 @@
 	<url>https://github.com/mountainest/framework</url>
 	<description>通用基础框架</description>
 	<properties>
-		<revision>0.0.1-SHAPSHOT</revision>
+		<revision>0.0.1-SNAPSHOT</revision>
 
 		<spring.boot.version>2.6.2</spring.boot.version>
 		<spring.cloud.version>2021.0.1</spring.cloud.version>

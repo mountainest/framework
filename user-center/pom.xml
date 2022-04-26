@@ -114,6 +114,7 @@
           <skip>true</skip>
         </configuration>
       </plugin>
+      <!-- 解决no main manifest attribute spring boot问题 -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>

@@ -6,6 +6,8 @@ server:
 spring:
   profiles:
     active: local
+  messages:
+    basename: i18n/messages_common, i18n/messages
 #  jackson:
 #    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
 

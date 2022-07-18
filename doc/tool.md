@@ -25,6 +25,16 @@ wsl --install
 wsl --install -d Ubuntu
 ```
 
+## k8s
+```shell
+# 使用-t指定镜像名称
+docker build -t helloworld .
+# 查看镜像列表
+docker image ls
+# 启动容易，可以通过 -p 指定端口映射，把容器内的80端口映射为宿主机的9001端口
+docker run -p 9001:80 helloworld
+```
+
 ## IDEA快捷键
 清理无用的import：Ctrl + Alt + O
 

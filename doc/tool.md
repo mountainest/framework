@@ -27,3 +27,13 @@ wsl --install -d Ubuntu
 
 ## IDEA快捷键
 清理无用的import：Ctrl + Alt + O
+
+## git
+```shell
+# git config的作用范围由小到大：local(当前项目，默认) < global（当前用户） < system（所有用户，全局）
+git config (--local 默认)
+git config --global
+git config --system
+# 关闭ssl
+git config http.sslVerify false
+```

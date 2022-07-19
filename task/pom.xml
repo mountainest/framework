@@ -91,4 +91,25 @@
       <scope>runtime</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <!-- 解决no main manifest attribute spring boot问题 -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>io.github.mountainest.TaskApplication</mainClass>
+        </configuration>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

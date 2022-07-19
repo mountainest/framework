@@ -12,7 +12,7 @@
 
 	<groupId>io.github.mountainest</groupId>
 	<artifactId>framework</artifactId>
-	<version>${revision}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>framework</name>
 	<url>https://github.com/mountainest/framework</url>
 	<description>通用基础框架</description>

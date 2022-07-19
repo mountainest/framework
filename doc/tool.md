@@ -25,6 +25,10 @@ wsl --install
 wsl --install -d Ubuntu
 ```
 
+#### 退出telnet：
+1、按 ctrl + ]  
+2、输入 quit
+
 ## k8s
 ```shell
 # 使用-t指定镜像名称

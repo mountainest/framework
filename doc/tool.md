@@ -1,5 +1,7 @@
 ## windows
 ```shell
+curl -H "Content-Type:application/json" -X POST -d 'json data' URL
+
 # websocket
 curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket"  https://test.com/test --http1.1 --output - -v
 

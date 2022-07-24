@@ -25,13 +25,32 @@ wsl --install
 # 2、重启计算机
 # 3、安装ubuntu。
 wsl --install -d Ubuntu
+# 查看linux版本信息：
+lsb_release -a
+# 查看ip信息
+hostname -I
+# 切换到普通用户abc
+su abc
 ```
+
 
 #### 退出telnet：
 1、按 ctrl + ]  
 2、输入 quit
 
 ## k8s
+安装docker desktop
+安装完docker之后，记得修改为国内镜像源，否则会有类似error [internal] load metadata for docker.io/library/centos:latest的错误。
+在daemon.json文件:
+```json
+	"registry-mirrors" : [
+		"https://registry.docker-cn.com",
+		"https://docker.mirrors.ustc.edu.cn",
+		"http://hub-mirror.c.163.com",
+		"https://cr.console.aliyun.com/"
+	]
+```
+
 ```shell
 # 使用-t指定镜像名称
 docker build -t helloworld .
@@ -39,8 +58,17 @@ docker build -t helloworld .
 docker image ls
 # 启动容易，可以通过 -p 指定端口映射，把容器内的80端口映射为宿主机的9001端口
 docker run -p 9001:80 helloworld
-```
+# 宿主机内查看正在运行的容器
+docker ps
+# 查看容器内的标准输出
+docker logs {containerID}
+# 停止容器
+docker stop {containerID}
 
+```
+可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
+
+使用 kind （Kubernetes In Docker，就是将 K8s 所需要的所有组件，全部部署在一个docker容器中，是一套开箱即用的 K8s 环境搭建方案）搭建的集群无法在生产中使用。
 ## IDEA快捷键
 清理无用的import：Ctrl + Alt + O
 
@@ -52,4 +80,7 @@ git config --global
 git config --system
 # 关闭ssl
 git config http.sslVerify false
+# 禁止快进式提交 https://blog.csdn.net/zombres/article/details/82179122
+git merge --no-ff feature
+
 ```

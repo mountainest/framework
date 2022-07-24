@@ -1,7 +1,16 @@
-### 查找哈希算法
+# 工具
+## maven
+依赖包使用情况分析
+mvn dependency:analyze
+分析传递依赖
+mvn dependency:tree -X
+
+# 算法
+## 查找哈希算法
 MurMurHash
 xxHash
 
+# 语法
 ## 多线程
 线程不安全： SimpleDateFormat
 线程安全： DateTimeFormatter

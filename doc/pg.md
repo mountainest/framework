@@ -5,6 +5,11 @@ mybatis中的#{}会进行预编译，能防止sql注入，${}只是进行字符�
 ```sql
 -- 会生成200个id
 select generate_series(1, 200);
+-- 添加列
+alter table "test_t" add column "name" varchar(127);
+-- 添加唯一性约束
+ALTER TABLE "test_t"
+    ADD CONSTRAINT "st_name_uk" UNIQUE("name");
 -- 增加删除非空约束
 alter table "test1" alter column "logo_url" drop not null;
 alter table "test1" alter column "logo_url" set not null;

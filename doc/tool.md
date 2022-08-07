@@ -25,12 +25,16 @@ wsl --install
 # 2、重启计算机
 # 3、安装ubuntu。
 wsl --install -d Ubuntu
+# 重启wsl
+wsl --shutdown
 # 查看linux版本信息：
 lsb_release -a
 # 查看ip信息
 hostname -I
-# 切换到普通用户abc
+# 切换到普通用户abc，直接su是切换到root用户
 su abc
+# 查看内存信息，-m指定单位
+free -m
 ```
 
 
@@ -64,7 +68,33 @@ docker ps
 docker logs {containerID}
 # 停止容器
 docker stop {containerID}
+# 关闭swap分区，在C:\Users\【你的用户名】目录新增.wslconfig文件，然后重启wsl
+[wsl2]
+swap=0 # 关闭swap
+[network]
+generateResolvConf = false # 解决域名解析失败的问题
 
+# 安装kind
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+# 创建k8s集群
+kind create cluster --name wslkind
+# 查看集群，kind后紧跟集群名称，即kind-wslkind中间不能带空格
+kubectl cluster-info --context kind-wslkind
+# 查看node
+kubectl get nodes
+# 查看kube-system空间内运行的pod
+kubectl get pods -n kube-system
+# 查看集群的所有资源
+kubectl get all --all-namespaces
+# 安装dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.0/aio/deploy/recommended.yaml
+
+# 
+kubeadm init --config kubeadm.yml
+# 启用systemd命令
+https://www.cnblogs.com/xxred/p/13258347.html
 ```
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 

@@ -31,6 +31,13 @@ wsl --shutdown
 lsb_release -a
 # 查看ip信息
 hostname -I
+
+# Update the repositories and list of the packages available
+sudo apt update
+# Update the system based on the packages installed > the "-y" will approve the change automatically
+sudo apt upgrade -y
+# wsl下默认root账号无密码，先设置root账号密码，然后再通过su命令进行切换
+sudo passwd root
 # 切换到普通用户abc，直接su是切换到root用户
 su abc
 # 查看内存信息，-m指定单位

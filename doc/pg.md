@@ -2,6 +2,7 @@
 mybatis中的#{}会进行预编译，能防止sql注入，${}只是进行字符串替换。
 
 ## pg
+http://www.postgres.cn/docs/13/
 ```sql
 -- 会生成200个id
 select generate_series(1, 200);

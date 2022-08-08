@@ -90,8 +90,13 @@ kubectl get pods -n kube-system
 kubectl get all --all-namespaces
 # 安装dashboard
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.0/aio/deploy/recommended.yaml
+# 开启代理才能访问http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+kubectl proxy
+# 但是，报错no endpoints available for service \"https:kubernetes-dashboard:\
+kubectl get pods --namespace kubernetes-dashboard
+kubectl describe pod kubernetes-dashboard-5676d8b865-48srv --namespace kubernetes-dashboardName
 
-# 
+
 kubeadm init --config kubeadm.yml
 # 启用systemd命令
 https://www.cnblogs.com/xxred/p/13258347.html

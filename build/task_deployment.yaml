@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deploymnet
+metadata:
+  name: task_deployment
+spec:
+  selector:
+    matchLabels:
+      app: task
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: task
+    spec:
+      containers:
+        - name: task
+          image: test1:latest
+          ports:
+            - containerPort: 80

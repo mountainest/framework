@@ -102,6 +102,8 @@ kubectl proxy
 # 但是，报错no endpoints available for service \"https:kubernetes-dashboard:\
 kubectl get pods --namespace kubernetes-dashboard
 kubectl describe pod kubernetes-dashboard-5676d8b865-48srv --namespace kubernetes-dashboardName
+# 启动部署
+kubectl create -f task_deployment.yaml
 
 # 查看当前可用的api-ver
 kubectl api-versions

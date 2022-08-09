@@ -19,6 +19,7 @@ taskkill /f /im exp
 ```
 
 ## wsl
+windows目录下的项目，不能使用wsl的go sdk来运行。
 ```shell
 # 1、以管理员身份进入命令行窗口，然后执行：
 wsl --install

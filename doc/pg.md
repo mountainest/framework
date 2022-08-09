@@ -8,6 +8,7 @@ http://www.postgres.cn/docs/13/
 select generate_series(1, 200);
 -- 添加列
 alter table "test_t" add column "name" varchar(127);
+COMMENT ON COLUMN "test_t"."id" IS '主键';
 -- 添加唯一性约束
 ALTER TABLE "test_t"
     ADD CONSTRAINT "st_name_uk" UNIQUE("name");

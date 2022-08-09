@@ -103,6 +103,8 @@ kubectl proxy
 kubectl get pods --namespace kubernetes-dashboard
 kubectl describe pod kubernetes-dashboard-5676d8b865-48srv --namespace kubernetes-dashboardName
 
+# 查看当前可用的api-ver
+kubectl api-versions
 
 kubeadm init --config kubeadm.yml
 # 启用systemd命令

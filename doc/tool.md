@@ -43,6 +43,10 @@ sudo passwd root
 su abc
 # 查看内存信息，-m指定单位
 free -m
+
+# golang环境变量设置，立即生效
+# 在$HOME/.profile文件加上PATH=$PATH:/usr/local/go/bin，保证重启之后，一直有效。
+export PATH=$PATH:/usr/local/go/bin
 ```
 
 

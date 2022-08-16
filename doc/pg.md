@@ -34,6 +34,10 @@ update "resource" set "resource_bz_id" = "tmp"."resource_bz_id" from (values
 (2, "test2")
 ) as "tmp" ("id", "resource_bz_id")
 where "resource"."id" = "tmp"."id";
+-- 统计每天的数量
+select date_trunc('day', "create_time"), count(*) from "bpm_t" group by date_trunc('day', "create_time");
+-- 按时段统计
+select extract(hour from "create_time"), count(*) from "bpm_t" group by extract(hour from "create_time");
 ```
 
 ## redis

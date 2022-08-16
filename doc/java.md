@@ -32,5 +32,10 @@ public class Test {
         // 输出abc
         System.out.println(test);
     }
+
+    // list转数组
+    List<String> list = Arrays.asList("a", "b");
+    String str1 = String.join(",", list);
+    String str = list.stream().collect(Collectors.joining(","));
 }
 ```

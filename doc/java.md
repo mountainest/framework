@@ -15,6 +15,8 @@ xxHash
 线程不安全： SimpleDateFormat
 线程安全： DateTimeFormatter
 
+AtomicLong < LongAdder
+
 ## 常用
 ```java
 public class Test {

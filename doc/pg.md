@@ -39,9 +39,35 @@ select date_trunc('day', "create_time"), count(*) from "bpm_t" group by date_tru
 -- 按时段统计
 select extract(hour from "create_time"), count(*) from "bpm_t" group by extract(hour from "create_time");
 ```
+pg并没有聚簇索引的概念，但是可以指定某个索引列，将数据按行聚集在一起，也就是基于索引进行物理上的排序。参考：https://blog.csdn.net/xiaobaixiaobai1234/article/details/6146610  
+
+pg的主备复制属于物理复制，相较于MySQL基于binlog的逻辑复制，数据的一致性更高，复制性能也更高，对主机性能的影响更小。  
+
+pg支持的链接方式有嵌套循环，哈希链接，排序合并，而mysql只支持嵌套循环。
+
+pg的稳定行更强，mysql在断电、崩溃等灾难场景下会有数据丢失的情况。
+
+pg支持递归查询：https://www.cnblogs.com/abclife/p/11022849.html  
+mysql在8.0版本之后才支持递归查询。
+
+## mysql
+聚簇索引默认是主键，也可以设置为其他索引。
 
 ## redis
 redis 只有keys命令支持通配符，有3个通配符 *, ? ,[]
 *: 通配任意多个字符
 ?: 通配单个字符
 []: 通配括号内的某1个字符
+
+## pg vs mysql
+1. 为什么说金融行业一般用pg的多？金融行业有什么特点？数据一致性？数据不丢？
+2. 高可用：pg稳如死狗，物理复制，数据一致性更高。
+3. 高并发：pg并发量更大
+4. 高性能：pg单表支持的数据量更大
+5. 为什么说互联网行业用mysql的多？人员参差不齐，懂mysql的多，就像有些公司要求接口都定义为post类型一样。
+6. pg堆表，mysql索引组织表。支持大数据量的都是堆表？
+7. pg和innodb都支持多列主键。pg可以不设置主键，也不要求主键自增。
+8. 那到底还要不要搞一个自增主键呢？直接用一个唯一索引作为主键？
+9. 支持的索引类型较全：B树、hash、GIN（Generalized Inverted Index，倒排索引，全文索引）、BRIN（Block Range Index，块范围索引，对块的摘要，比如时序数据）、函数索引、部分索引（基于部分行建索引）
+10. pg支持正则表达式搜索。
+11. pg支持递归查询，mysql的8.0版本才支持。

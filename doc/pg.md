@@ -68,6 +68,6 @@ redis 只有keys命令支持通配符，有3个通配符 *, ? ,[]
 6. pg堆表，mysql索引组织表。支持大数据量的都是堆表？
 7. pg和innodb都支持多列主键。pg可以不设置主键，也不要求主键自增。
 8. 那到底还要不要搞一个自增主键呢？直接用一个唯一索引作为主键？
-9. 支持的索引类型较全：B树、hash、GIN（Generalized Inverted Index，倒排索引，全文索引）、BRIN（Block Range Index，块范围索引，对块的摘要，比如时序数据）、函数索引、部分索引（基于部分行建索引）
+9. 支持的索引类型较全：B*树、hash、GIN（Generalized Inverted Index，倒排索引，全文索引）、BRIN（Block Range Index，块范围索引，对块的摘要，比如时序数据）、函数索引、部分索引（基于部分行建索引）
 10. pg支持正则表达式搜索。
 11. pg支持递归查询，mysql的8.0版本才支持。

@@ -71,3 +71,4 @@ redis 只有keys命令支持通配符，有3个通配符 *, ? ,[]
 9. 支持的索引类型较全：B*树、hash、GIN（Generalized Inverted Index，倒排索引，全文索引）、BRIN（Block Range Index，块范围索引，对块的摘要，比如时序数据）、函数索引、部分索引（基于部分行建索引）
 10. pg支持正则表达式搜索。
 11. pg支持递归查询，mysql的8.0版本才支持。
+12. mysql B+树（块的最低使用率1/2），pg B*树（块的最低使用率2/3），所以pg分配新节点的概率低于mysql，块的使用率较高。

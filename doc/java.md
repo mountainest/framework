@@ -76,3 +76,5 @@ k8s在杀死pod时，会使用优雅停机（默认30秒），在优雅停机过
 参考：
 https://www.jianshu.com/p/38101bff6c29
 https://www.cnblogs.com/dengkaiting/p/15808785.html
+
+stream: 访问者模式（本来是外部迭代集合，改成了内部迭代)，责任链模式（多个行为链式操作）

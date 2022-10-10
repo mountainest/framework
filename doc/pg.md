@@ -91,3 +91,7 @@ https://blog.csdn.net/sunny05296/article/details/121170496
 https://cloud.tencent.com/developer/article/1785162
 
 Seata：分布式事务
+
+DC < AZ < Region
+AZ = 1+ DC
+region = 2+ AZ，AZ之间使用低延迟的光纤互联

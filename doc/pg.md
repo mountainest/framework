@@ -95,3 +95,5 @@ Seata：分布式事务
 DC < AZ < Region
 AZ = 1+ DC
 region = 2+ AZ，AZ之间使用低延迟的光纤互联
+
+mybatis: sqlSessionFactory -> sqlSession -> ResultSet -> 转成pojo

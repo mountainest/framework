@@ -78,3 +78,8 @@ https://www.jianshu.com/p/38101bff6c29
 https://www.cnblogs.com/dengkaiting/p/15808785.html
 
 stream: 访问者模式（本来是外部迭代集合，改成了内部迭代)，责任链模式（多个行为链式操作）
+
+park/unpark 通过系统调用，而wait/notify通过对象锁。
+park是等待一个许可，unpark是为某线程发放一个许可。
+
+unpark调用时，如果当前线程还未进入park，则将许可设置为true;park调用时，判断许可是否为true，如果是true，则 park 不阻塞线程，程序继续往下执行；如果是false，则阻塞线程。所以只要我们的 park/unpark 成对出现，无论执行顺序如何，都不会因此造成死锁。

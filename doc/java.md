@@ -17,6 +17,20 @@ xxHash
 
 AtomicLong < LongAdder
 
+<b>常见的线程安全类：</b>  
+Vector，Stack，HashTable，StringBuffer、ConcurrentHashMap、ThreadPoolExecutor。  
+Collections中的synchronizedCollection(Collection c)方法可将一个集合变为线程安全。  
+<b>非线程安全类：</b>  
+ArrayList、LinkedList、StringBulider、  
+HashMap -> HashSet、  
+TreeMap（基于红黑树的Map实现） -> TreeSet
+
+
+<b>比较常用的构建线程安全的List有三种方法：</b>
+1. 使用Vector容器
+2. 使用Collections的静态方法synchronizedList(List< T> list)
+3. 采用CopyOnWriteArrayList容器
+
 ## 常用
 ```java
 public class Test {
@@ -83,3 +97,15 @@ park/unpark 通过系统调用，而wait/notify通过对象锁。
 park是等待一个许可，unpark是为某线程发放一个许可。
 
 unpark调用时，如果当前线程还未进入park，则将许可设置为true;park调用时，判断许可是否为true，如果是true，则 park 不阻塞线程，程序继续往下执行；如果是false，则阻塞线程。所以只要我们的 park/unpark 成对出现，无论执行顺序如何，都不会因此造成死锁。
+
+
+
+#### bootstrap vs application
+1) bootstrap 优先加载。 
+2) bootstrap 里面的属性不能被覆盖
+
+
+JVM调优参数
+https://blog.csdn.net/m0_46316970/article/details/123585951
+
+Error 和 Exception 均继承自Throwable

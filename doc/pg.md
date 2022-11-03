@@ -47,7 +47,7 @@ pg的物理复制是实例级别的复制，无法做到表级复制，占用的
 
 pg支持的链接方式有嵌套循环，哈希链接，排序合并，而mysql只支持嵌套循环。
 
-pg的稳定行更强，mysql在断电、崩溃等灾难场景下会有数据丢失的情况。
+pg的稳定性更强，mysql在断电、崩溃等灾难场景下会有数据丢失的情况。
 
 pg支持递归查询：https://www.cnblogs.com/abclife/p/11022849.html  
 mysql在8.0版本之后才支持递归查询。
@@ -92,8 +92,14 @@ https://cloud.tencent.com/developer/article/1785162
 
 Seata：分布式事务
 
+mongodb4.0支持事务
+
 DC < AZ < Region
 AZ = 1+ DC
 region = 2+ AZ，AZ之间使用低延迟的光纤互联
 
 mybatis: sqlSessionFactory -> sqlSession -> ResultSet -> 转成pojo
+https://blog.csdn.net/weixin_45727359/article/details/127563745
+https://juejin.cn/post/7152141448321138718
+
+连接池： https://www.cnblogs.com/fenjyang/p/11537381.html

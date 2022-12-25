@@ -56,6 +56,17 @@ public class Test {
 }
 ```
 
+Future: 会阻塞主线程，或者主线程不停的去轮询是否结束。  
+CompletableFuture: 回调的方式，主线程不需要关心任务何时结束。同时实现了CompletionStage和Future接口。
+
+https://zhuanlan.zhihu.com/p/344431341
+https://www.cnblogs.com/txmfz/p/11266411.html
+
+以run开头的方法，其入口参数一定是无参的，并且没有返回值，类似于执行Runnable方法。
+以supply开头的方法，入口也是没有参数的，但是有返回值
+以Accept开头或者结尾的方法，入口参数是有参数，但是没有返回值
+以Apply开头或者结尾的方法，入口有参数，有返回值
+
 ## 优雅停机
 1. jre本身自带的
    Runtime.getRuntime().addShutdownHook(t -> {});

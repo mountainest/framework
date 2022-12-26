@@ -39,6 +39,19 @@ select date_trunc('day', "create_time"), count(*) from "bpm_t" group by date_tru
 -- 按时段统计
 select extract(hour from "create_time"), count(*) from "bpm_t" group by extract(hour from "create_time");
 ```
+```shell
+# 连接数据库，ctrl + D 退出数据库连接
+sudo -u postgres psql
+# 查看数据库列表
+\l
+# 选择数据库
+\c test
+# 查看数据表的列表
+\d
+# 创建数据库，记得带分号和不带分号是有区别的
+create database user_center;
+```
+
 pg并没有聚簇索引的概念，但是可以指定某个索引列，将数据按行聚集在一起，也就是基于索引进行物理上的排序。参考：https://blog.csdn.net/xiaobaixiaobai1234/article/details/6146610  
 
 pg的主备复制属于物理复制，时延毫秒级，相较于MySQL基于binlog的逻辑复制，数据的一致性更高，复制性能也更高，对主机性能的影响更小。  

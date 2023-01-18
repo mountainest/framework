@@ -68,11 +68,11 @@ export PATH=$PATH:/usr/local/go/bin
 ```
 
 ```shell
-# 使用-t指定镜像名称
+# 制作docker镜像，使用-t指定镜像名称
 docker build -t helloworld .
 # 查看镜像列表
 docker image ls
-# 启动容易，可以通过 -p 指定端口映射，把容器内的80端口映射为宿主机的9001端口
+# 启动容器，可以通过 -p 指定端口映射，把容器内的80端口映射为宿主机的9001端口
 docker run -p 9001:80 helloworld
 # 宿主机内查看正在运行的容器
 docker ps
@@ -120,6 +120,8 @@ https://www.cnblogs.com/xxred/p/13258347.html
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 
 使用 kind （Kubernetes In Docker，就是将 K8s 所需要的所有组件，全部部署在一个docker容器中，是一套开箱即用的 K8s 环境搭建方案）搭建的集群无法在生产中使用。
+
+Helm：k8s应用包管理工具，管理3复杂应用部署。
 ## IDEA快捷键
 清理无用的import：Ctrl + Alt + O
 
@@ -135,3 +137,6 @@ git config http.sslVerify false
 git merge --no-ff feature
 
 ```
+
+## 快速定位
+开启debug日志

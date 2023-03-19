@@ -1,4 +1,74 @@
 ```sql
+-- 用户账号表
+CREATE TABLE "uc_user_t" (
+    "uid" INT8 NOT NULL UNIQUE,
+    "ctime" TIMESTAMP(6) NOT NULL,
+    "nickname" VARCHAR(127) NOT NULL,
+    "female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "mobile" VARCHAR(127) NOT NULL,
+    "email" VARCHAR(127) NOT NULL,
+    "avatar_url" VARCHAR(127) NOT NULL DEFAULT '',
+    "enabled_flg" BOOLEAN NOT NULL DEFAULT TRUE,
+    "location" VARCHAR(255) NOT NULL DEFAULT ''
+);
+
+COMMENT ON TABLE "uc_user_t" IS '用户账号表';
+COMMENT ON COLUMN "uc_user_t"."uid" IS '唯一标识，同一个用户稳定不变';
+COMMENT ON COLUMN "uc_user_t"."nickname" IS '名称';
+COMMENT ON COLUMN "uc_user_t"."female_flg" IS '女性标识';
+COMMENT ON COLUMN "uc_user_t"."mobile" IS '手机号';
+COMMENT ON COLUMN "uc_user_t"."email" IS '邮箱';
+COMMENT ON COLUMN "uc_user_t"."avatar_url" IS '用户头像链接';
+COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
+COMMENT ON COLUMN "uc_user_t"."location" IS '用户注册时，所在的地理位置';
+
+-- 用户帖子表
+CREATE TABLE "uc_post_t" (
+    "uid" INT8 NOT NULL UNIQUE,
+    "ctime" TIMESTAMP(6) NOT NULL,
+    "utime" TIMESTAMP(6) NOT NULL,
+    "female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "birthday" INT4 NOT NULL,
+    "location" VARCHAR(127) NOT NULL,
+    "target_female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "target_female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "email" VARCHAR(127) NOT NULL,
+    "pictures" VARCHAR(127) NOT NULL DEFAULT '',
+    "enabled_flg" BOOLEAN NOT NULL DEFAULT TRUE,
+    "location" VARCHAR(255) NOT NULL DEFAULT ''
+);
+
+COMMENT ON TABLE "uc_user_t" IS '用户信息表';
+COMMENT ON COLUMN "uc_user_t"."uid" IS '唯一标识，同一个用户稳定不变';
+COMMENT ON COLUMN "uc_user_t"."female_flg" IS '女性标识';
+COMMENT ON COLUMN "uc_user_t"."year" IS '出生年份';
+COMMENT ON COLUMN "uc_user_t"."month" IS '出生月份';
+COMMENT ON COLUMN "uc_user_t"."location" IS '身高';
+COMMENT ON COLUMN "uc_user_t"."location" IS '体重';
+COMMENT ON COLUMN "uc_user_t"."location" IS '位置';
+COMMENT ON COLUMN "uc_user_t"."province" IS '家乡省份';
+COMMENT ON COLUMN "uc_user_t"."avatar_url" IS '学历';
+COMMENT ON COLUMN "uc_user_t"."location" IS '工作地';
+COMMENT ON COLUMN "uc_user_t"."location" IS '公司性质';
+COMMENT ON COLUMN "uc_user_t"."location" IS '公司行业';
+COMMENT ON COLUMN "uc_user_t"."job" IS '职业';
+COMMENT ON COLUMN "uc_user_t"."location" IS '年收入';
+COMMENT ON COLUMN "uc_user_t"."location" IS '性格';
+COMMENT ON COLUMN "uc_user_t"."location" IS '星座';
+COMMENT ON COLUMN "uc_user_t"."location" IS '兴趣爱好';
+COMMENT ON COLUMN "uc_user_t"."location" IS '补充说明';
+COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
+COMMENT ON COLUMN "uc_user_t"."pictures" IS '靓照秀';
+
+-- 目标用户表
+
+-- 目标性格表
+-- 目标年龄表
+-- 目标家乡表
+
+-- 性格表
+-- 省份表
+
 -- 用户中心用户表
 CREATE TABLE "uc_user_t" (
     "id" BIGSERIAL PRIMARY KEY NOT NULL,

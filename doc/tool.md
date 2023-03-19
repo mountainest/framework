@@ -140,3 +140,7 @@ git merge --no-ff feature
 
 ## 快速定位
 开启debug日志
+
+
+解决The connection to the server raw.githubusercontent.com was refused - did you specify the r问题。https://blog.csdn.net/NoBuggie/article/details/125894520
+域名ip查询 https://ip.tool.chinaz.com/

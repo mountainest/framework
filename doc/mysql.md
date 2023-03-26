@@ -11,9 +11,6 @@ select version();
 
 -- 查询事务
 SELECT * FROM information_schema.INNODB_TRX;
--- 查询锁
-select * from information_schema.innodb_lock_waits;
-select * from information_schema.innodb_locks;
 
 -- 死锁 Waiting for table metadata lock
 select * from information_schema.processlist where command not in ('Sleep') ORDER BY time desc;
@@ -26,6 +23,9 @@ kill {id};
 -- Innodb_row_lock_waits : 系统启动到现在总共锁定的次数
 show status like 'innodb_row_lock_%';
 show status like '%lock%';
+-- 查询锁
+select * from information_schema.innodb_lock_waits;
+select * from information_schema.innodb_locks;
 
 -- 查看表锁的情况
 show status like 'table%';

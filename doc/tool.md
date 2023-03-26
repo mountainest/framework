@@ -127,8 +127,8 @@ Helm：k8s应用包管理工具，管理3复杂应用部署。
 
 ## git
 ```shell
-# git config的作用范围由小到大：local(当前项目，默认) < global（当前用户） < system（所有用户，全局）
-git config (--local 默认)
+# git config的作用范围由小到大：local(当前项目，要进入当前仓库目录才可操作) < global（当前用户） < system（所有用户，全局）
+git config --local
 git config --global
 git config --system
 # 关闭ssl
@@ -136,6 +136,7 @@ git config http.sslVerify false
 # 禁止快进式提交 https://blog.csdn.net/zombres/article/details/82179122
 git merge --no-ff feature
 
+# 2021-08-31之后，github不能使用密码push，必须在github上生成token，代替密码。
 ```
 
 ## 快速定位

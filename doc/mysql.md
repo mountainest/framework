@@ -25,13 +25,22 @@ show status like 'innodb_row_lock_%';
 show status like '%lock%';
 -- 查询锁
 select * from information_schema.innodb_lock_waits;
+-- 提供有关InnoDB 事务已请求但尚未获取的每个锁的信息，以及事务持有的阻止另一个事务的每个锁。
 select * from information_schema.innodb_locks;
 
 -- 查看表锁的情况
 show status like 'table%';
 -- 查询是否锁表
 show OPEN TABLES where In_use > 0;
+    
 -- 查询最近一次的死锁日志
 show ENGINE INNODB STATUS;
+-- 该参数开启之后，每次发生死锁后，系统会自动将死锁信息输出到错误日志中。
+show variables like 'innodb_print_all_deadlocks';
+
+-- 数据导出
+select * from resource_num_info where resource_type_code = 'H3C_Standard_4C8G_02' and reserved_remain_desk_num > 0
+    INTO OUTFILE '/home/deployer/pang.txt' CHARACTER SET utf8mb4;
+SHOW VARIABLES LIKE "secure_file_priv";
 
 ```

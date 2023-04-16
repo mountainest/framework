@@ -44,6 +44,14 @@ su abc
 # 查看内存信息，-m指定单位
 free -m
 
+# 查找服务的安装目录
+# 1、查看命令的进程id
+ps -aux | grep nginx
+# 2、进一步确认进程id
+ps -u root
+# 3、进入进程目录/proc,执行ls -l ，可以看到对应的进程目录。
+# 4、进入30058这个进程目录，执行 ls -l。可以找到对应的服务目录。
+
 # golang环境变量设置，立即生效
 # 在$HOME/.profile文件加上PATH=$PATH:/usr/local/go/bin，保证重启之后，一直有效。
 export PATH=$PATH:/usr/local/go/bin
@@ -127,6 +135,10 @@ Helm：k8s应用包管理工具，管理3复杂应用部署。
 
 ## git
 ```shell
+# 本地修改打patch
+git diff > test.patch
+git apply test.patch
+
 # git config的作用范围由小到大：local(当前项目，要进入当前仓库目录才可操作) < global（当前用户） < system（所有用户，全局）
 git config --local
 git config --global

@@ -24,14 +24,16 @@ COMMENT ON COLUMN "uc_user_t"."location" IS '用户注册时，所在的地理�
 
 -- 用户帖子表
 CREATE TABLE "uc_post_t" (
-    "uid" INT8 NOT NULL UNIQUE,
+    "uid" VARCHAR(127) NOT NULL UNIQUE,
     "ctime" TIMESTAMP(6) NOT NULL,
     "utime" TIMESTAMP(6) NOT NULL,
     "female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
     "birthday" INT4 NOT NULL,
+    "height" INT2 NOT NULL,
+    "weight" INT2 NOT NULL,
     "location" VARCHAR(127) NOT NULL,
-    "target_female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
-    "target_female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "province" VARCHAR(127) NOT NULL,
+    "education" INT2 NOT NULL,
     "email" VARCHAR(127) NOT NULL,
     "pictures" VARCHAR(127) NOT NULL DEFAULT '',
     "enabled_flg" BOOLEAN NOT NULL DEFAULT TRUE,
@@ -40,23 +42,22 @@ CREATE TABLE "uc_post_t" (
 
 COMMENT ON TABLE "uc_user_t" IS '用户信息表';
 COMMENT ON COLUMN "uc_user_t"."uid" IS '唯一标识，同一个用户稳定不变';
+COMMENT ON COLUMN "uc_user_t"."workplace" IS '工作地';
 COMMENT ON COLUMN "uc_user_t"."female_flg" IS '女性标识';
-COMMENT ON COLUMN "uc_user_t"."year" IS '出生年份';
-COMMENT ON COLUMN "uc_user_t"."month" IS '出生月份';
-COMMENT ON COLUMN "uc_user_t"."location" IS '身高';
-COMMENT ON COLUMN "uc_user_t"."location" IS '体重';
+COMMENT ON COLUMN "uc_user_t"."birthday" IS '出生日期';
+COMMENT ON COLUMN "uc_user_t"."height" IS '身高（公分）';
+COMMENT ON COLUMN "uc_user_t"."weight" IS '体重（斤）';
+COMMENT ON COLUMN "uc_user_t"."education" IS '学历，0：初中及以下，1：高中，2：大专，3：本科，4：硕士，5：博士及以上';
 COMMENT ON COLUMN "uc_user_t"."location" IS '位置';
-COMMENT ON COLUMN "uc_user_t"."province" IS '家乡省份';
-COMMENT ON COLUMN "uc_user_t"."avatar_url" IS '学历';
-COMMENT ON COLUMN "uc_user_t"."location" IS '工作地';
-COMMENT ON COLUMN "uc_user_t"."location" IS '公司性质';
-COMMENT ON COLUMN "uc_user_t"."location" IS '公司行业';
 COMMENT ON COLUMN "uc_user_t"."job" IS '职业';
-COMMENT ON COLUMN "uc_user_t"."location" IS '年收入';
-COMMENT ON COLUMN "uc_user_t"."location" IS '性格';
-COMMENT ON COLUMN "uc_user_t"."location" IS '星座';
-COMMENT ON COLUMN "uc_user_t"."location" IS '兴趣爱好';
-COMMENT ON COLUMN "uc_user_t"."location" IS '补充说明';
+COMMENT ON COLUMN "uc_user_t"."annual_salary" IS '年收入';
+COMMENT ON COLUMN "uc_user_t"."personality" IS '性格';
+COMMENT ON COLUMN "uc_user_t"."hobbies" IS '兴趣爱好';
+COMMENT ON COLUMN "uc_user_t"."province" IS '家乡省份';
+COMMENT ON COLUMN "uc_user_t"."company_type" IS '公司性质，0：自由职业，1：民营企业，2：民营大厂，3：国企及事业单位';
+COMMENT ON COLUMN "uc_user_t"."location" IS '公司行业';
+COMMENT ON COLUMN "uc_user_t"."constellation" IS '星座';
+COMMENT ON COLUMN "uc_user_t"."addition" IS '补充说明';
 COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
 COMMENT ON COLUMN "uc_user_t"."pictures" IS '靓照秀';
 

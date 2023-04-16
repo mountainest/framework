@@ -60,6 +60,7 @@ COMMENT ON COLUMN "uc_user_t"."constellation" IS '星座';
 COMMENT ON COLUMN "uc_user_t"."addition" IS '补充说明';
 COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
 COMMENT ON COLUMN "uc_user_t"."pictures" IS '靓照秀';
+COMMENT ON COLUMN "uc_user_t"."contact" IS '联系方式（如微信）';
 
 -- 目标用户表
 

@@ -82,12 +82,19 @@ docker build -t helloworld .
 docker image ls
 # 启动容器，可以通过 -p 指定端口映射，把容器内的80端口映射为宿主机的9001端口
 docker run -p 9001:80 helloworld
+# 启动容器
+docker run -p 80:80 -p 63306:63306 --name nginx-mysql \
+  -d nginx:latest
 # 宿主机内查看正在运行的容器
 docker ps
 # 查看容器内的标准输出
 docker logs {containerID}
+# 重启容器
+docker restart {containerID}
 # 停止容器
 docker stop {containerID}
+# 停止容器
+docker start {containerName}
 # 关闭swap分区，在C:\Users\【你的用户名】目录新增.wslconfig文件，然后重启wsl
 [wsl2]
 swap=0 # 关闭swap

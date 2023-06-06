@@ -133,7 +133,10 @@ kubeadm init --config kubeadm.yml
 https://www.cnblogs.com/xxred/p/13258347.html
 
 # 查看pod重启原因
-kubectl -n cem get pod cem-gateway-58d667965f-jgr8w -oyaml|grep lastState -A 6
+kubectl -n kube-system get pod gateway-58d667965f-jgr8w -oyaml|grep lastState -A 6
+
+# 查看pod的启动日志
+kubectl logs gateway-58d667965f-jgr8w -n kube-system
 ```
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 

@@ -5,11 +5,11 @@
   <Property name="filename">user-center</Property>
   <!-- 指定零时区，去除彩色 -->
   <Property name="pattern">
-    %d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+0} [%-5level] [%t: %class{1.}] %method:%L - %msg%n
+    %d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+0} [%-5level] [${hostname}: %t: %class{1.}] %method:%L - %msg%n
   </Property>
   <!-- 彩色输出 -->
   <Property name="color.pattern">
-    %d{yyyy-MM-dd HH:mm:ss.SSS} [%highlight{%-5level}] [%t: %class{1.}] %method:%L - %msg%n
+    %d{yyyy-MM-dd HH:mm:ss.SSS} [%highlight{%-5level}] [${hostname}: %t: %class{1.}] %method:%L - %msg%n
   </Property>
 
   <Property name="error.filename">${filename}-error</Property>

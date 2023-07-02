@@ -1,4 +1,26 @@
 ```sql
+-- 用户账号表
+CREATE TABLE "uc_user_t" (
+    "uid" INT8 NOT NULL UNIQUE,
+    "ctime" TIMESTAMP(6) NOT NULL,
+    "nickname" VARCHAR(127) NOT NULL,
+    "female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
+    "mobile" VARCHAR(127) NOT NULL,
+    "email" VARCHAR(127) NOT NULL,
+    "avatar_url" VARCHAR(127) NOT NULL DEFAULT '',
+    "enabled_flg" BOOLEAN NOT NULL DEFAULT TRUE,
+    "location" VARCHAR(255) NOT NULL DEFAULT ''
+);
+
+COMMENT ON TABLE "uc_user_t" IS '用户账号表';
+COMMENT ON COLUMN "uc_user_t"."uid" IS '唯一标识，同一个用户稳定不变';
+COMMENT ON COLUMN "uc_user_t"."nickname" IS '名称';
+COMMENT ON COLUMN "uc_user_t"."female_flg" IS '女性标识';
+COMMENT ON COLUMN "uc_user_t"."mobile" IS '手机号';
+COMMENT ON COLUMN "uc_user_t"."email" IS '邮箱';
+COMMENT ON COLUMN "uc_user_t"."avatar_url" IS '用户头像链接';
+COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
+COMMENT ON COLUMN "uc_user_t"."location" IS '用户注册时，所在的地理位置';
 
 -- 用户资料表
 CREATE TABLE "uc_user_t" (

@@ -5,10 +5,11 @@
   <packaging>pom</packaging>
   <modules>
     <module>task</module>
-		<module>gateway</module>
-		<module>commons</module>
-	    <module>user-center</module>
-	</modules>
+	  <module>gateway</module>
+	  <module>commons</module>
+	  <module>user-center</module>
+      <module>friends</module>
+  </modules>
 
 	<groupId>io.github.mountainest</groupId>
 	<artifactId>framework</artifactId>

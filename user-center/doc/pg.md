@@ -50,12 +50,12 @@ COMMENT ON COLUMN "uc_user_t"."weight" IS '体重（斤）';
 COMMENT ON COLUMN "uc_user_t"."education" IS '学历，0：初中及以下，1：高中，2：大专，3：本科，4：硕士，5：博士及以上';
 COMMENT ON COLUMN "uc_user_t"."location" IS '位置';
 COMMENT ON COLUMN "uc_user_t"."job" IS '职业';
-COMMENT ON COLUMN "uc_user_t"."annual_salary" IS '年薪';
+COMMENT ON COLUMN "uc_user_t"."company_type" IS '公司性质，0：自由职业，1：民营企业，2：民营大厂，3：国企及事业单位';
+COMMENT ON COLUMN "uc_user_t"."annual_salary" IS '年收入';
+COMMENT ON COLUMN "uc_user_t"."province" IS '家乡省份';
+COMMENT ON COLUMN "uc_user_t"."city" IS '家乡城市';
 COMMENT ON COLUMN "uc_user_t"."personality" IS '性格';
 COMMENT ON COLUMN "uc_user_t"."hobbies" IS '兴趣爱好';
-COMMENT ON COLUMN "uc_user_t"."province" IS '家乡省份';
-COMMENT ON COLUMN "uc_user_t"."company_type" IS '公司性质，0：自由职业，1：民营企业，2：民营大厂，3：国企及事业单位';
-COMMENT ON COLUMN "uc_user_t"."location" IS '公司行业';
 COMMENT ON COLUMN "uc_user_t"."constellation" IS '星座';
 COMMENT ON COLUMN "uc_user_t"."addition" IS '补充说明';
 COMMENT ON COLUMN "uc_user_t"."enabled_flg" IS '启用标识';
@@ -67,7 +67,6 @@ CREATE TABLE "uc_target_info_t" (
     "uid" VARCHAR(127) NOT NULL UNIQUE,
     "ctime" TIMESTAMP(6) NOT NULL,
     "utime" TIMESTAMP(6) NOT NULL,
-    "female_flg" BOOLEAN NOT NULL DEFAULT FALSE,
     "birthday" INT4 NOT NULL,
     "height" INT2 NOT NULL,
     "weight" INT2 NOT NULL,

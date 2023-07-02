@@ -1,0 +1,34 @@
+server:
+  servlet:
+    context-path: /friends
+  port: 9200
+
+spring:
+  profiles:
+    active: local
+#  jackson:
+#    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+knife4j:
+  enable: true
+
+management:
+  server:
+    port: 8000
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      servername: ${server.servlet.context-path}

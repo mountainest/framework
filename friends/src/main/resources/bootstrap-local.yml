@@ -1,0 +1,10 @@
+logging:
+  config: classpath:log/log4j2-local.xml
+
+spring:
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://172.30.60.60:5432/friends
+    username: postgres
+    password: postgres

@@ -7,8 +7,26 @@ SELECT @@tx_isolation;
 show create table `user_t`;
 show variables like 'character_set_database';
 SHOW INDEX FROM `user_t`;
-select version();
+-- 将新表名改为原表
+ALTER TABLE formal_table_new RENAME TO formal_table;
 
+select version();
+-- 查看配置的连接数
+show variables like 'max_connections';
+-- 查看已使用的连接数的最大值
+show global status like 'Max_used_connections';
+-- Threads_connected： 当前连接数，和 show full PROCESSLIST 的条数相等。
+-- Threads_running： 正在执行sql的连接数，和 show full PROCESSLIST 中Query状态的条数相等。
+show status like '%thread%';
+-- Sleep: 正在等待客户端向它发送执行语句
+show full PROCESSLIST;
+show status;
+
+-- 查看慢查询配置
+show global status like '%Slow_queries%';
+-- 查询慢查询阈值，单位秒
+show variables like 'long_query_time';
+    
 -- 查询事务
 SELECT * FROM information_schema.INNODB_TRX;
 

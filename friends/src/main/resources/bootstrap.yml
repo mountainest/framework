@@ -8,6 +8,8 @@ spring:
     active: local
 #  jackson:
 #    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+  messages:
+    basename: i18n/messages_common, i18n/messages
 
 springfox:
   documentation:

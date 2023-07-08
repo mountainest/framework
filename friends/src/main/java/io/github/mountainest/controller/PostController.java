@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(tags = "用户资料")
-@RequestMapping("/users")
+@Api(tags = "用户帖子")
+@RequestMapping("/posts")
 @RestController
 public class PostController {
     @ApiOperation("新增用户资料")

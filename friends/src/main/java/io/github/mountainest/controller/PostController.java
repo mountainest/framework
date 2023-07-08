@@ -5,6 +5,7 @@ import io.github.mountainest.dto.PostDto;
 import io.github.mountainest.dto.PostQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,21 +14,21 @@ import java.util.List;
 @RequestMapping("/posts")
 @RestController
 public class PostController {
-    @ApiOperation("新增用户资料")
+    @ApiOperation("用户发帖")
     @PostMapping()
-    public Result<Void> add(PostDto dto) {
+    public Result<Void> add(@Validated @RequestBody PostDto dto) {
         return Result.success();
     }
 
-    @ApiOperation("修改用户资料")
-    @PutMapping()
-    public Result<Void> update(PostDto dto) {
+    @ApiOperation("修改帖子")
+    @PutMapping("/{uid}")
+    public Result<Void> update(@PathVariable("id") String uid, @Validated @RequestBody PostDto dto) {
         return Result.success();
     }
 
-    @ApiOperation("查找用户资料")
+    @ApiOperation("查找帖子")
     @GetMapping()
-    public Result<List<PostDto>> list(PostQuery query) {
+    public Result<List<PostDto>> list(@Validated @RequestBody PostQuery query) {
         return Result.success();
     }
 }

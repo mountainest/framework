@@ -3,7 +3,7 @@ package io.github.mountainest.dto;
 import lombok.Data;
 
 @Data
-public class UserQuery {
+public class PostQuery {
     private String location;
     private Boolean femaleFlg;
     private Integer minBirthday;

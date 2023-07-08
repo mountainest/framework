@@ -1,9 +1,21 @@
-package io.github.mountainest.dto;
+package io.github.mountainest.po;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
-public class UserDto {
+@TableName("f_post_t")
+public class PostPo {
+    private String uid;
+    @TableField(fill = FieldFill.INSERT)
+    private Date ctime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date utime;
+
     private String location;
     private Boolean femaleFlg;
     private Integer birthday;

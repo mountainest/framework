@@ -40,6 +40,13 @@ select date_trunc('day', "create_time"), count(*) from "bpm_t" group by date_tru
 select extract(hour from "create_time"), count(*) from "bpm_t" group by extract(hour from "create_time");
 ```
 ```shell
+# 检查数据库状态
+sudo service postgresql status
+# 启动数据库
+sudo service postgresql start
+# 停止数据库
+sudo service postgresql stop
+
 # 连接数据库，ctrl + D 退出数据库连接
 sudo -u postgres psql
 # 查看数据库列表

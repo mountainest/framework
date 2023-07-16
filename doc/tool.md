@@ -52,6 +52,13 @@ ps -u root
 # 3、进入进程目录/proc,执行ls -l ，可以看到对应的进程目录。
 # 4、进入30058这个进程目录，执行 ls -l。可以找到对应的服务目录。
 
+# 解压gz文件
+gzip -d file-Name.gz
+# 修改文件权限
+sudo chmod 777 buy0711
+# 拆分文件，-b指定每个文件10M大小， -d指定拆分后的文件用数字排序
+split -b 1M -d error.log-20230711 error.log-20230711_
+
 # golang环境变量设置，立即生效
 # 在$HOME/.profile文件加上PATH=$PATH:/usr/local/go/bin，保证重启之后，一直有效。
 export PATH=$PATH:/usr/local/go/bin

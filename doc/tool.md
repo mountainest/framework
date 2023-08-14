@@ -144,6 +144,21 @@ kubectl -n kube-system get pod gateway-58d667965f-jgr8w -oyaml|grep lastState -A
 
 # 查看pod的启动日志
 kubectl logs gateway-58d667965f-jgr8w -n kube-system
+
+# 查看pod所在的主机ip
+kubectl get pod -n cem -o wide
+
+# oom问题处理
+# 如果从pod里面dump内存快照，会报错Unable to get pid of LinuxThreads manager thread，解决办法：
+pid=1 ;\
+touch /proc/${pid}/cwd/.attach_pid${pid} && \
+  kill -SIGQUIT ${pid} && \
+  sleep 2 &&
+  ls /proc/${pid}/root/tmp/.java_pid${pid}
+# live是导出未回收的
+jmap -dump:live,format=b,file=heap-live.hprof 1
+# 拷贝到宿主机
+kubectl cp -n kube_system gateway-7ff5748f96-6zdhd:heap-live.hprof heap-live.hprof
 ```
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 

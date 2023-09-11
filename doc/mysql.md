@@ -20,6 +20,8 @@ show global status like 'Max_used_connections';
 show status like '%thread%';
 -- Sleep: 正在等待客户端向它发送执行语句
 show full PROCESSLIST;
+-- 查询当前正在运行的sql
+select * from information_schema.processlist where command = ('Query');
 show status;
 
 -- 查看慢查询配置

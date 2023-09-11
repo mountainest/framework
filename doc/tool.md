@@ -62,6 +62,15 @@ split -b 1M -d error.log-20230711 error.log-20230711_
 # golang环境变量设置，立即生效
 # 在$HOME/.profile文件加上PATH=$PATH:/usr/local/go/bin，保证重启之后，一直有效。
 export PATH=$PATH:/usr/local/go/bin
+
+# top命令，按下M按内存倒序，按下P按CPU倒序，注意大写
+
+# 查看命中行的，往前10行的日志
+grep -B 10 '2023-09-11T08:50:50' slow.log
+# 查看命中行的，往后10行的日志
+grep -A 10 '2023-09-11T08:50:50' slow.log
+# 查看命中行的，前后10行的日志
+grep -C 10 '2023-09-11T08:50:50' slow.log
 ```
 
 
@@ -159,6 +168,8 @@ touch /proc/${pid}/cwd/.attach_pid${pid} && \
 jmap -dump:live,format=b,file=heap-live.hprof 1
 # 拷贝到宿主机
 kubectl cp -n kube_system gateway-7ff5748f96-6zdhd:heap-live.hprof heap-live.hprof
+jmap -heap 查看是否内存分配过小
+jmap -histo 查看是否有明显的对象分配过多且没有释放的情况
 ```
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 

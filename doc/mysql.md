@@ -28,7 +28,12 @@ show status;
 show global status like '%Slow_queries%';
 -- 查询慢查询阈值，单位秒
 show variables like 'long_query_time';
-    
+
+-- 查看sql执行日志的输出到file还是table
+show variables like 'log_output';
+-- 查看sql执行日志是否记录
+SHOW VARIABLES LIKE "general_log%";
+
 -- 查询事务
 SELECT * FROM information_schema.INNODB_TRX;
 

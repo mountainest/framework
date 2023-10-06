@@ -2,6 +2,7 @@ package io.github.mountainest.po;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @Data
 @TableName("f_post_t")
 public class PostPo {
+    @TableId
     private String uid;
     @TableField(fill = FieldFill.INSERT)
     private Date ctime;

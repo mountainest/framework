@@ -22,18 +22,21 @@ public class PostController {
     @ApiOperation("用户发帖")
     @PostMapping()
     public Result<Void> add(@Validated @RequestBody PostDto dto) {
+        this.postService.add(dto);
         return Result.success();
     }
 
     @ApiOperation("修改帖子")
     @PutMapping("/{uid}")
     public Result<Void> update(@PathVariable("id") String uid, @Validated @RequestBody PostDto dto) {
+        this.postService.update(uid, dto);
         return Result.success();
     }
 
-    @ApiOperation("查找帖子")
+    @ApiOperation("查找帖子，根据修改时间倒序")
     @GetMapping()
     public Result<List<PostDto>> list(@Validated @RequestBody PostQuery query) {
-        return Result.success();
+        List<PostDto> list = this.postService.list(query);
+        return Result.success(list);
     }
 }

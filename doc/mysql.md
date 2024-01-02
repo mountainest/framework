@@ -24,7 +24,7 @@ show full PROCESSLIST;
 select * from information_schema.processlist where command = ('Query');
 show status;
 
--- 查看慢查询配置
+-- 查看慢查询的记录数
 show global status like '%Slow_queries%';
 -- 查询慢查询阈值，单位秒
 show variables like 'long_query_time';

@@ -24,6 +24,8 @@ show full PROCESSLIST;
 select * from information_schema.processlist where command = ('Query');
 show status;
 
+-- 性能相关的测量数据，在该库下面。
+performance_schema
 -- 查看慢查询的记录数
 show global status like '%Slow_queries%';
 -- 查询慢查询阈值，单位秒
@@ -68,4 +70,18 @@ select * from resource_num_info where resource_type_code = 'H3C_Standard_4C8G_02
     INTO OUTFILE '/home/deployer/pang.txt' CHARACTER SET utf8mb4;
 SHOW VARIABLES LIKE "secure_file_priv";
 
+-- information_schema 库里面常用的视图：
+PROCESSLIST
+STATISTICS
+TABLES
+INNODB_TRX
+INNODB_BUFFER_PAGE_LRU
+INNODB_BUFFER_PAGE
+INNODB_METRICS
+INNODB_BUFFER_POOL_STATS
+INNODB_SYS_TABLESTATS
 ```
+
+es vs mongodb
+https://blog.csdn.net/kongliand/article/details/108691847
+

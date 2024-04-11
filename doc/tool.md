@@ -205,3 +205,13 @@ git merge --no-ff feature
 
 解决The connection to the server raw.githubusercontent.com was refused - did you specify the r问题。https://blog.csdn.net/NoBuggie/article/details/125894520
 域名ip查询 https://ip.tool.chinaz.com/
+
+# 书籍
+Kafka权威指南（第2版）
+深入理解Kafka：核心设计与实践原理
+kubernetes快速入门
+
+凤凰架构
+微服务架构设计模式
+ElasticSearch搜索引擎构建入门与实践
+MongoDB权威指南 第3版

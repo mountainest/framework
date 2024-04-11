@@ -31,3 +31,5 @@ https://zhuanlan.zhihu.com/p/421160954
 1. 自动提交
 2. 手动提交（同步、异步）
 https://www.ahfesco.com.cn/affairs/Article.asp?id=3278
+
+kafka的副本只是备份功能，不提供读的能力。

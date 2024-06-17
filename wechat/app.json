@@ -5,12 +5,6 @@
     "pages/usercenter/person-info/index",
     "pages/usercenter/address/list/index",
     "pages/usercenter/address/edit/index",
-    "pages/goods/list/index",
-    "pages/goods/details/index",
-    "pages/goods/category/index",
-    "pages/goods/search/index",
-    "pages/goods/result/index",
-    "pages/cart/index",
     "pages/order/order-confirm/index",
     "pages/order/receipt/index",
     "pages/order/pay-result/index",
@@ -42,20 +36,14 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/goods/category/index",
-        "text": "分类"
-      },
-      {
-        "pagePath": "pages/cart/index",
-        "text": "购物车"
-      },
-      {
         "pagePath": "pages/usercenter/index",
         "text": "我的"
       }
     ]
   },
-  "requiredPrivateInfos": ["chooseAddress"],
+  "requiredPrivateInfos": [
+    "chooseAddress"
+  ],
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {},
   "window": {

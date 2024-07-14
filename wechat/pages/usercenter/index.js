@@ -1,4 +1,6 @@
-import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
+import { fetchPerson } from '../../services/usercenter/fetchPerson';
+import { phoneEncryption } from '../../utils/util';
+// import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
@@ -37,21 +39,18 @@ Page({
   },
 
   init() {
-    this.fetUseriInfoHandle();
+    this.fetchData();
   },
 
-  fetUseriInfoHandle() {
-    fetchUserCenter().then(
-      ({
-        userInfo,
-      }) => {
-        this.setData({
-          personInfo: userInfo,
-          currAuthStep: 2,
-        });
-        wx.stopPullDownRefresh();
-      },
-    );
+  fetchData() {
+    fetchPerson().then((personInfo) => {
+      this.setData({
+        personInfo,
+        'personInfo.phoneNumber': phoneEncryption(personInfo.phoneNumber),
+        currAuthStep: 2,
+      });
+      wx.stopPullDownRefresh();
+    });
   },
 
   gotoUserEditPage() {
@@ -59,7 +58,7 @@ Page({
     if (currAuthStep === 2) {
       wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
     } else {
-      this.fetUseriInfoHandle();
+      this.fetchData();
     }
   },
 

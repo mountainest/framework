@@ -151,3 +151,10 @@ page {
   border-radius: 50% !important;
   overflow: hidden;
 }
+
+.person-info .order-group__left {
+  margin-right: 0;
+}
+.person-info .t-cell-class {
+  height: 112rpx;
+}

@@ -144,3 +144,10 @@ page {
 .cell-box .t-cell-padding {
   padding: 24rpx 18rpx 24rpx 32rpx;
 }
+
+.avatarUrl {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50% !important;
+  overflow: hidden;
+}

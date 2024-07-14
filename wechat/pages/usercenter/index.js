@@ -1,16 +1,28 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 
-const getDefaultData = () => ({
-  userInfo: {
-    avatarUrl: '',
-    nickName: '正在登录...',
-    phoneNumber: '',
-  },
-  currAuthStep: 1,
-});
-
 Page({
-  data: getDefaultData(),
+  data: {
+    personInfo: {
+      avatarUrl: '',
+      nickName: '正在登录...',
+      gender: 0,
+      phoneNumber: '',
+    },
+    currAuthStep: 1,
+    showUnbindConfirm: false,
+    pickerOptions: [
+      {
+        name: '男',
+        code: '1',
+      },
+      {
+        name: '女',
+        code: '2',
+      },
+    ],
+    typeVisible: false,
+    genderMap: ['', '男', '女'],
+  },
 
   onLoad() {
     this.init();
@@ -34,7 +46,7 @@ Page({
         userInfo,
       }) => {
         this.setData({
-          userInfo,
+          personInfo: userInfo,
           currAuthStep: 2,
         });
         wx.stopPullDownRefresh();

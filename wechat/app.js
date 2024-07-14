@@ -5,6 +5,11 @@ App({
     this.login();
   },
   login: function() {
+    wx.getUserInfo({
+      success: (res) => {
+        console.log(res);
+      }
+    });
     wx.login({
       success: (res) => {
         // code = res.code;

@@ -9,7 +9,7 @@
 />
 <view class="content-wrapper">
   <t-cell-group>
-    <t-cell
+    <!--t-cell
       title="头像"
       center="{{true}}"
       data-type="avatarUrl"
@@ -18,7 +18,16 @@
       t-class-left="order-group__left"
     >
       <t-image slot="note" src="{{personInfo.avatarUrl}}" t-class="avatarUrl" mode="aspectFill" />
-    </t-cell>
+    </t-cell-->
+    <t-cell
+      title="所在城市"
+      arrow
+      note="{{personInfo.location}}"
+      data-type="name"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
     <t-cell
       title="昵称"
       arrow

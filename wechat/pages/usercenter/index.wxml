@@ -22,7 +22,7 @@
     <t-cell
       title="所在城市"
       arrow
-      note="{{personInfo.location}}"
+      note="{{personInfo.locationName}}"
       data-type="name"
       bind:click="onClickCell"
       t-class="t-cell-class"

@@ -29,3 +29,26 @@ export function genAddress(id) {
 export function genAddressList(len = 10) {
   return new Array(len).fill(0).map((_, idx) => genAddress(idx));
 }
+
+const cityMap = [
+  {
+    name: '北京',
+    code: '110000',
+  },
+  {
+    name: '苏州',
+    code: '320500',
+  },
+];
+
+export function getCityNameByCode(cityCode) {
+  console.log("城市编码：", cityCode)
+  for (let item of cityMap) {
+    console.log("城市编码：", cityCode, item.code)
+    if (item.code == cityCode) {
+      return item.name;
+    }
+  }
+
+  return '';
+}

@@ -1,4 +1,5 @@
 import { fetchPerson } from '../../services/usercenter/fetchPerson';
+import { fetchCityNameByCode } from '../../services/city';
 import { phoneEncryption } from '../../utils/util';
 import Toast from 'tdesign-miniprogram/toast/index';
 
@@ -9,6 +10,7 @@ Page({
       nickName: '正在登录...',
       gender: 0,
       phoneNumber: '',
+      locationName: '',
     },
     currAuthStep: 1,
     showUnbindConfirm: false,
@@ -47,6 +49,7 @@ Page({
       this.setData({
         personInfo,
         'personInfo.phoneNumber': phoneEncryption(personInfo.phoneNumber),
+        'personInfo.locationName': fetchCityNameByCode(personInfo.locationCode),
         currAuthStep: 2,
       });
       wx.stopPullDownRefresh();

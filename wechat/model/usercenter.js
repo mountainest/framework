@@ -5,7 +5,7 @@ const userInfo = {
   phoneNumber: '13438358888',
   gender: 2,
   uid: 'suzhou',
-  location: 'suzhou',
+  locationCode: '320500',
   birthday: 199001,
   height: 180,
   weight: 150,

@@ -42,9 +42,7 @@ const cityMap = [
 ];
 
 export function getCityNameByCode(cityCode) {
-  console.log("城市编码：", cityCode)
   for (let item of cityMap) {
-    console.log("城市编码：", cityCode, item.code)
     if (item.code == cityCode) {
       return item.name;
     }

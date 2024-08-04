@@ -30,11 +30,10 @@ Page({
 
   onLoad() {
     this.init();
+    this.getTabBar().init();
   },
 
   onShow() {
-    this.getTabBar().init();
-    this.init();
   },
   onPullDownRefresh() {
     this.init();
@@ -66,7 +65,8 @@ Page({
   },
   onClickCell({ currentTarget }) {
     const { dataset } = currentTarget;
-    const { nickName } = this.data.personInfo;
+    const personInfo = this.data.personInfo;
+    const {nickName} = this.data.personInfo;
 
     switch (dataset.type) {
       case 'gender':
@@ -86,6 +86,11 @@ Page({
         break;
       }
     }
+  },
+  callback(value) {
+    this.setData({
+      'personInfo.nickName': value
+    });
   },
   onClose() {
     this.setData({

@@ -9,7 +9,15 @@ Page({
     });
   },
   onSubmit() {
-    wx.navigateBack({ backRefresh: true });
+    let pages = getCurrentPages();
+    let prePage = pages[pages.length - 2];
+    let value = this.data.nameValue;
+    wx.navigateBack({
+      delta: 1,
+      success: function(e) {
+        prePage.callback(value);
+      },
+    });
   },
   clearContent() {
     this.setData({

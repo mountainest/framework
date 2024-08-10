@@ -74,9 +74,9 @@ Page({
           typeVisible: true,
         });
         break;
-      case 'name':
+      case 'nickName':
         wx.navigateTo({
-          url: `/pages/usercenter/name-edit/index?name=${nickName}`,
+          url: `/pages/usercenter/name-edit/index?key=${dataset.type}&value=${nickName}`,
         });
         break;
       case 'avatarUrl':
@@ -87,10 +87,12 @@ Page({
       }
     }
   },
-  callback(value) {
-    this.setData({
-      'personInfo.nickName': value
-    });
+  callback(key, value) {
+    switch (key) {
+      case 'nickName': 
+        this.setData({'personInfo.nickName': value});
+        break;
+    }
   },
   onClose() {
     this.setData({

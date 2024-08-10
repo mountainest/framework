@@ -32,7 +32,7 @@
       title="昵称"
       arrow
       note="{{personInfo.nickName}}"
-      data-type="name"
+      data-type="nickName"
       bind:click="onClickCell"
       t-class="t-cell-class"
       t-class-left="order-group__left"

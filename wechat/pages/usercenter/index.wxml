@@ -7,6 +7,7 @@
   currAuthStep="{{currAuthStep}}"
   bind:gotoUserEditPage="gotoUserEditPage"
 />
+<scroll-view scroll-y style="height:2000px">
 <view class="content-wrapper">
   <t-cell-group>
     <!--t-cell
@@ -47,6 +48,115 @@
       t-class-left="order-group__left"
     />
     <t-cell
+      title="出生年月"
+      arrow
+      note="{{personInfo.birthday}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="身高（公分）"
+      arrow
+      note="{{personInfo.height}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="体重（公斤）"
+      arrow
+      note="{{personInfo.weight}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="学历"
+      arrow
+      note="{{personInfo.education}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="职业"
+      arrow
+      note="{{personInfo.job}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="公司性质"
+      arrow
+      note="{{personInfo.companyType}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="年收入(万元)"
+      arrow
+      note="{{personInfo.annualSalary}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <!-- 和市合并一个 -->
+    <t-cell
+      title="籍贯（省）"
+      arrow
+      note="{{personInfo.province}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="性格"
+      arrow
+      note="{{personInfo.personality}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="星座"
+      arrow
+      note="{{personInfo.constellation}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="补充说明"
+      arrow
+      note="{{personInfo.addition}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <!-- <t-cell
+      title="是否发布"
+      arrow
+      note="{{personInfo.enabledFlg}}"
+      data-type="nickName"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    /> -->
+    <t-cell
       bordered="{{false}}"
       title="手机号"
       arrow
@@ -58,6 +168,7 @@
     />
   </t-cell-group>
 </view>
+</scroll-view>
 <t-select-picker
   show="{{typeVisible}}"
   picker-options="{{pickerOptions}}"

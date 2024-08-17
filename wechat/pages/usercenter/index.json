@@ -12,5 +12,6 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-select-picker": "./components/ui-select-picker/index"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": false,
+  "disableScroll": false
 }

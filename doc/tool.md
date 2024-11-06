@@ -170,8 +170,10 @@ touch /proc/${pid}/cwd/.attach_pid${pid} && \
 jmap -dump:live,format=b,file=heap-live.hprof 1
 # 拷贝到宿主机
 kubectl cp -n kube_system gateway-7ff5748f96-6zdhd:heap-live.hprof heap-live.hprof
-jmap -heap 查看是否内存分配过小
-jmap -histo 查看是否有明显的对象分配过多且没有释放的情况
+# 查看进程
+jps
+jmap -heap ${pid} 查看是否内存分配过小
+jmap -histo ${pid} 查看是否有明显的对象分配过多且没有释放的情况
 ```
 可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 

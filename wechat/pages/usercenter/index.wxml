@@ -56,14 +56,11 @@
       t-class="t-cell-class"
       t-class-left="order-group__left"
     />
-    <t-cell
-      title="身高（公分）"
-      arrow
-      note="{{personInfo.height}}"
-      data-type="nickName"
-      bind:click="onClickCell"
-      t-class="t-cell-class"
-      t-class-left="order-group__left"
+    <t-input
+      label="身高(cm)"
+      value = "{{personInfo.height}}"
+      placeholder= "请输入"
+      align = "right"
     />
     <t-cell
       title="体重（公斤）"

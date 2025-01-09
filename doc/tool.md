@@ -150,6 +150,16 @@ kubeadm init --config kubeadm.yml
 # 启用systemd命令
 https://www.cnblogs.com/xxred/p/13258347.html
 
+# 1、重启pod
+kubectl replace --force -f xxx.yaml
+# 2、通过调整副本数重启
+kubectl scale deployment xxx --replicas=0 -n kube-system
+kubectl scale deployment xxx --replicas=1 -n kube-system
+# 3、通过删除pod重启
+kubectl delete pod xxx -n kube-system
+# 4、重启pod
+kubectl rollout restart deployment/xxx
+
 # 查看pod重启原因
 kubectl -n kube-system get pod gateway-58d667965f-jgr8w -oyaml|grep lastState -A 6
 
